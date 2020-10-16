@@ -5,8 +5,7 @@ import { AuthService } from '../services/auth.service';
 @Component({
     selector: 'app-send-email',
     templateUrl: './send-email.component.html',
-    styleUrls: ['./send-email.component.scss'],
-    providers: [ AuthService ]
+    styleUrls: ['./send-email.component.scss']
 })
 export class SendEmailComponent implements OnInit {
 
@@ -18,6 +17,6 @@ export class SendEmailComponent implements OnInit {
     }
 
     onSendEmail() {
-
+        this.auth.sendVerificationEmail();
     }
 }

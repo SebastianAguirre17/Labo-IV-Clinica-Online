@@ -9,11 +9,13 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { CommonModule } from '@angular/common';
+import { SendEmailComponent } from './auth/send-email/send-email.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        NavbarComponent
+        NavbarComponent,
+        SendEmailComponent
     ],
     imports: [
         BrowserModule,
