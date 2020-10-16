@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
     declarations: [
@@ -19,7 +20,8 @@ import { environment } from 'src/environments/environment';
         AppRoutingModule,
         ReactiveFormsModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
-        AngularFireAuthModule
+        AngularFireAuthModule,
+        CommonModule
     ],
     providers: [
 
