@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row p-5">
     <div class="col-md-6 mx-auto mt-5" >
         <div class="card">
             <div class="card-body">
@@ -22,8 +22,9 @@
                     <button class="btn btn-primary btn-lg btn-block" type="submit" >Iniciar Sesión</button>
                 </form>
 
-                <div class="form-group mt-3">
+                <div class="form-group mt-3 row justify-content-around">
                     <p> ¿No tienes cuenta? <a [routerLink]="['/register']"> Registrarse</a></p>
+                    <p> <a [routerLink]="['/forgotPassword']">¿Olvidaste la contraseña? </a></p>
                  </div>
             </div>
         </div>
