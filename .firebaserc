@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "clinica-online-3b015": {
+      "hosting": {
+        "clinica": [
+          "clinica-online-3b015"
+        ]
+      }
+    }
+  }
+}
