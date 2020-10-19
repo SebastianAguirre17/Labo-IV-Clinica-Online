@@ -18,7 +18,6 @@ export class AuthService extends RoleVlidator {
     constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore) {
         
         super();
-        this.getUsers();
 
         this.user$ = this.afAuth.authState.pipe(
             switchMap((user) => {
@@ -59,7 +58,6 @@ export class AuthService extends RoleVlidator {
                 email,
                 password
             );
-            this.updateRolUser(user, 'ADMIN');
             Swal.close();
             return user;
         } catch (error) {
@@ -114,18 +112,5 @@ export class AuthService extends RoleVlidator {
         }
 
         return userRef.set(data, { merge: true });
-    }
-
-    getCurrentUser() {
-        return this.afAuth.authState.pipe(first()).toPromise();
-    }
-
-    getUsers() {
-        return new Promise<any>((resolve, reject) => {
-            this.afs.collection('/users').valueChanges().subscribe(snapshots => {
-                console.log(snapshots);
-                resolve(snapshots)
-            })
-        })
     }
 }

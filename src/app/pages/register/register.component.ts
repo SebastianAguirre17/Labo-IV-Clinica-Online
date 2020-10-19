@@ -35,8 +35,6 @@ export class RegisterComponent implements OnInit {
                 this.checkUserIsVerified(user);
             else 
                 this.router.navigate(['/login']);
-            
-                
         }
         catch (err) {
             console.log(err);

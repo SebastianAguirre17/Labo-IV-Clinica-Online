@@ -27,15 +27,17 @@ export class LoginComponent implements OnInit {
         try {
             const user = await this.auth.login(email, password);
 
-            // TODO
-            const userRef = this.auth.getCurrentUser();
-            console.log(userRef);
-
+            
             if (user) {
-                if (user.role === 'PACIENTE')
-                    this.checkUserIsVerified(user);
-                else
-                    this.checkTypeUser(user);
+                // TODO
+                this.auth.user$.subscribe(user => {
+                    // console.log(user.role);
+                    if (user.role === 'PACIENTE')
+                        this.checkUserIsVerified(user);
+                    else
+                        this.checkTypeUser(user);
+                });
+                
             }
         } catch (error) {
             console.log(error);
