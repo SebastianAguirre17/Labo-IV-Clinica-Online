@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeAdminComponent } from './components/home-admin/home-admin.component';
-import { HomePacienteComponent } from './components/home-paciente/home-paciente.component';
-import { HomeProfesionalComponent } from './components/home-profesional/home-profesional.component';
-import { AdminGuard } from './guards/admin.guard';
-import { PacienteGuard } from './guards/paciente.guard';
-import { ProfesionalGuard } from './guards/profesional.guard';
+
+import { HomeAdminComponent } from './pages/home-admin/home-admin.component';
+import { HomePacienteComponent } from './pages/home-paciente/home-paciente.component';
+import { HomeProfesionalComponent } from './pages/home-profesional/home-profesional.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { SendEmailComponent } from './pages/send-email/send-email.component';
+
+import { AdminGuard } from './guards/admin.guard';
+import { PacienteGuard } from './guards/paciente.guard';
+import { ProfesionalGuard } from './guards/profesional.guard';
 
 const routes: Routes = [
     { path: '', component: LoginComponent },

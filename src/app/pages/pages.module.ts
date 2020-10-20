@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
+import { ComponentsModule } from '../components/components.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SendEmailComponent } from './send-email/send-email.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { ComponentsModule } from '../components/components.module';
-import { RouterModule } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeAdminComponent } from './home-admin/home-admin.component';
+import { HomePacienteComponent } from './home-paciente/home-paciente.component';
+import { HomeProfesionalComponent } from './home-profesional/home-profesional.component';
+import { NgDropFileDirective } from '../directives/ng-drop-files.directive';
 
 
 
@@ -15,7 +20,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         LoginComponent,
         RegisterComponent,
         SendEmailComponent,
-        ForgotPasswordComponent
+        ForgotPasswordComponent,
+        HomeAdminComponent,
+        HomePacienteComponent,
+        HomeProfesionalComponent,
+        NgDropFileDirective
     ],
     imports: [
         CommonModule,
@@ -28,7 +37,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         LoginComponent,
         RegisterComponent,
         SendEmailComponent,
-        ForgotPasswordComponent
+        ForgotPasswordComponent,
+        HomeAdminComponent,
+        HomePacienteComponent,
+        HomeProfesionalComponent
     ]
 })
 export class PagesModule { }

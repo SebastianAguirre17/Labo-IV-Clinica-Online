@@ -37,7 +37,6 @@ export class LoginComponent implements OnInit {
                     else
                         this.checkTypeUser(user);
                 });
-                
             }
         } catch (error) {
             console.log(error);
@@ -46,11 +45,9 @@ export class LoginComponent implements OnInit {
 
     private checkUserIsVerified(user: User) {
         if (user && user.emailVerified)
-            this.router.navigate(['/home-admin']);
+            this.router.navigate(['/home-paciente']);
         else if (user)
             this.router.navigate(['/verification']);
-        else
-            this.router.navigate(['/register']);
     }
 
     private checkTypeUser(user: User) {

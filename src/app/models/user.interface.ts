@@ -6,4 +6,6 @@ export interface User {
     password?: string;
     emailVerified?: boolean;
     role?: Role;
+    img1?: string;
+    img2?: string;
 }
