@@ -1,11 +1,12 @@
 import { IfStmt } from '@angular/compiler';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FileItem } from 'src/app/models/file-item.class';
 import { User } from 'src/app/models/user.interface';
 import { CargaImagenesService } from 'src/app/services/carga-imagenes.service';
+import { DataService } from 'src/app/services/data.service';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -18,18 +19,51 @@ export class RegisterComponent implements OnInit {
     estaSobreElemento: boolean = false;
     archivos: FileItem[] = [];
 
+    forma: FormGroup;
 
     registerForm = new FormGroup({
         email: new FormControl(''),
         password: new FormControl(''),
         rol: new FormControl('PROFESIONAL')
     });
-    constructor(private auth: AuthService, private router: Router, public _carga: CargaImagenesService) { }
+
+    constructor(private auth: AuthService, 
+                private router: Router, 
+                public _carga: CargaImagenesService,
+                private data: DataService,
+                private fb: FormBuilder) { }
 
     ngOnInit(): void {
+
+        this.crearFormulario();
+    }
+
+    get invalidEmail() {
+        return this.forma.get('email').invalid && this.forma.get('email').touched;
+    }
+
+    get invalidPassword() {
+        return this.forma.get('password').invalid && this.forma.get('password').touched;
+    }
+
+    crearFormulario() {
+        this.forma = this.fb.group({
+            email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+            password: ['', [Validators.required, Validators.minLength(8)]],
+            rol: ['PROFESIONAL', Validators.required]
+        });
     }
 
     async onRegister() {
+        if (this.forma.invalid) {
+            return Object.values(this.forma.controls).forEach(control => {
+                if (control instanceof FormGroup)
+                    Object.values(control.controls).forEach(control => control.markAsTouched());
+                else
+                    control.markAsTouched();
+            });
+        }
+
         const { email, password, rol } = this.registerForm.value;
         
         try {
@@ -60,7 +94,7 @@ export class RegisterComponent implements OnInit {
     }
 
     cambiarElementoSeleccionado() {
-        if(this.registerForm.value.rol === 'PACIENTE')
+        if(this.forma.value.rol === 'PACIENTE')
             this.mostrarImagenes = true;
         else    
             this.mostrarImagenes = false;

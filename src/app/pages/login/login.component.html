@@ -10,14 +10,16 @@
                         <h1 class="text-left">INICIAR SESIÓN</h1>
                     </div>
                 </div>
-                <form class="mt-5" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                <form class="mt-5" [formGroup]="forma" (ngSubmit)="onLogin()">
                     <div class="form-group">
-                        <label for="email">Correo electrónico</label>
+                        <label for="email" [class.text-danger]="invalidEmail">Correo electrónico</label>
                         <input type="email" class="form-control" formControlName="email">
+                        <small *ngIf="invalidEmail" class="text-danger">El formato debe ser: nombre@dominio.algo</small>
                     </div>
                     <div class="form-group">
-                        <label for="password">Contraseña</label>
+                        <label for="password" [class.text-danger]="invalidPassword">Contraseña</label>
                         <input type="password" class="form-control" formControlName="password">
+                        <small *ngIf="invalidPassword" class="text-danger">Debe ingresar al menos 8 caraccteres</small>
                     </div>
                     <button class="btn btn-primary btn-lg btn-block" type="submit" >Iniciar Sesión</button>
                 </form>
