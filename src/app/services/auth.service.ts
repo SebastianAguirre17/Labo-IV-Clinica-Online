@@ -18,7 +18,7 @@ export class AuthService extends RoleVlidator {
     constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore) {
         
         super();
-
+        
         this.user$ = this.afAuth.authState.pipe(
             switchMap((user) => {
                 if (user) {
@@ -58,7 +58,7 @@ export class AuthService extends RoleVlidator {
                 email,
                 password
             );
-            Swal.close();
+            
             return user;
         } catch (error) {
             Swal.fire({
@@ -81,7 +81,6 @@ export class AuthService extends RoleVlidator {
                 email,
                 password
             );
-            Swal.close();
             await this.sendVerificationEmail();
             return user;
         } catch (error) {

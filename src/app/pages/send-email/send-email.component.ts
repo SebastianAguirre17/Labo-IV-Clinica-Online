@@ -19,4 +19,8 @@ export class SendEmailComponent implements OnInit {
     onSendEmail() {
         this.auth.sendVerificationEmail();
     }
+
+    async iniciarSesion() {
+        await this.auth.logout();
+    }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import Swal from 'sweetalert2';
 import { User } from '../../models/user.interface';
 
 @Component({
@@ -37,7 +38,6 @@ export class LoginComponent implements OnInit {
     }
 
     async onLogin() {
-
         if (this.forma.invalid) {
             return Object.values(this.forma.controls).forEach(control => {
                 if (control instanceof FormGroup)
@@ -51,15 +51,14 @@ export class LoginComponent implements OnInit {
         try {
             const user = await this.auth.login(email, password);
 
-            
             if (user) {
-                // TODO
-                this.auth.user$.subscribe(user => {
-                    // console.log(user.role);
-                    if (user.role === 'PACIENTE')
+                this.auth.user$.subscribe(userObs => {
+                    if (userObs.role === 'PACIENTE')
                         this.checkUserIsVerified(user);
-                    else
-                        this.checkTypeUser(user);
+                    else if (userObs.role === 'ADMIN')
+                        this.router.navigate(['/home-admin']);
+                    else if (userObs.role === 'PROFESIONAL')
+                        this.router.navigate(['/home-profesional']);
                 });
             }
         } catch (error) {
@@ -72,14 +71,8 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/home-paciente']);
         else if (user)
             this.router.navigate(['/verification']);
+
+        Swal.close();
     }
 
-    private checkTypeUser(user: User) {
-        if (user && user.role === 'ADMIN')
-            this.router.navigate(['/home-admin']);
-        else if (user)
-            this.router.navigate(['/home-profesional']);
-    }
-
-   
 }

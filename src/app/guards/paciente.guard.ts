@@ -16,7 +16,7 @@ export class PacienteGuard implements CanActivate {
     canActivate(): Observable<boolean> | Promise<boolean> | boolean {
         return this.auth.user$.pipe(
             take(1),
-            map((user) => user && this.auth.isPatient(user) && user.emailVerified),
+            map((user) => user && this.auth.isPatient(user)),
             tap((canPatient) => {
                 if (!canPatient) {
                     Swal.fire({

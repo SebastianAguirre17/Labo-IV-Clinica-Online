@@ -7,6 +7,7 @@ import { FileItem } from 'src/app/models/file-item.class';
 import { User } from 'src/app/models/user.interface';
 import { CargaImagenesService } from 'src/app/services/carga-imagenes.service';
 import { DataService } from 'src/app/services/data.service';
+import Swal from 'sweetalert2';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -64,32 +65,22 @@ export class RegisterComponent implements OnInit {
             });
         }
 
-        const { email, password, rol } = this.registerForm.value;
+        const { email, password, rol } = this.forma.value;
         
         try {
             const user = await this.auth.register(email, password);
             
             this.auth.updateRolUser(user, rol);
             
+            Swal.close();
             if(rol === 'PACIENTE') {
-                this.cargarImagenes(user);
-                this.checkUserIsVerified(user);
+                this.router.navigate(['/verification']);
             }
             else 
                 this.router.navigate(['/login']);
         }
         catch (err) {
             console.log(err);
-        }
-    }
-
-    private checkUserIsVerified(user: User) {
-        if (user && user.emailVerified) {
-            this.router.navigate(['/home-paciente']);
-        } else if (user) {
-            this.router.navigate(['/verification']);
-        } else {
-            this.router.navigate(['/register']);
         }
     }
 
