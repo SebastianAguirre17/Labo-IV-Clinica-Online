@@ -1,6 +1,7 @@
-<div class="jumbotron" *ngIf="user" >
-    <h1 class="display-5">Bienvenido {{ user.email }} </h1>
-    <img [src]="user.img1" alt="">
-    <img [src]="user.img2" alt="">
-    <hr class="my-4">
+<div class="media" *ngIf="user">
+    <img [src]="user.img1" class="mr-3" alt="...">
+    <img [src]="user.img2" class="mr-3" alt="...">
+    <div class="media-body">
+        <h5 class="mt-0">Bienvenido {{ user.email }}</h5>
+    </div>
 </div>

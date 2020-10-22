@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { User } from 'firebase';
 import { Observable } from 'rxjs';
+import { User } from 'src/app/models/user.interface';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -27,7 +27,7 @@ export class HomePacienteComponent implements OnInit {
             for(const item of items) {
                 if(item.uid === this.user.uid) {
                     this.user = item;
-                    console.log(this.user);
+                    
                 }
             }
         })
