@@ -1,15 +1,39 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { User } from 'firebase';
+import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-home-paciente',
-  templateUrl: './home-paciente.component.html',
-  styleUrls: ['./home-paciente.component.scss']
+    selector: 'app-home-paciente',
+    templateUrl: './home-paciente.component.html',
+    styleUrls: ['./home-paciente.component.scss']
 })
 export class HomePacienteComponent implements OnInit {
 
-  constructor() { }
+    public user$: Observable<any> = this.auth.afAuth.user;
+    user: User;
+   
+    private itemsCollection: AngularFirestoreCollection<User>;
+    items: Observable<User[]>;
 
-  ngOnInit(): void {
-  }
+    constructor(private auth: AuthService, private afs: AngularFirestore) {
+        this.itemsCollection = afs.collection<User>('users');
+        this.items = this.itemsCollection.valueChanges();
+        this.user$.subscribe(user => {
+            this.user = user;
+        });
+        this.items.subscribe(items => {
+            for(const item of items) {
+                if(item.uid === this.user.uid) {
+                    this.user = item;
+                    console.log(this.user);
+                }
+            }
+        })
+    }
+
+    ngOnInit(): void {
+    }
 
 }

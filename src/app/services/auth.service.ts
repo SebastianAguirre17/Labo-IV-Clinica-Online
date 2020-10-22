@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore'
 import { Observable, of } from 'rxjs';
 import { User } from '../models/user.interface';
-import { first, switchMap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 import { RoleVlidator } from '../helpers/role-validator.class';
 import Swal from 'sweetalert2';
 import { Role } from '../models/roles.types';
@@ -112,4 +112,6 @@ export class AuthService extends RoleVlidator {
 
         return userRef.set(data, { merge: true });
     }
+
+    
 }

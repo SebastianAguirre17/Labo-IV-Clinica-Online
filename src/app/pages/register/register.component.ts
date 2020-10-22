@@ -74,6 +74,7 @@ export class RegisterComponent implements OnInit {
             
             Swal.close();
             if(rol === 'PACIENTE') {
+                this.cargarImagenes(user);
                 this.router.navigate(['/verification']);
             }
             else 

@@ -12,7 +12,7 @@ export class CargaImagenesService {
 
     private CARPETA_IMAGENES = 'img';
 
-    constructor(private db: AngularFirestore, private afs: AngularFirestore) { }
+    constructor(private afs: AngularFirestore) { }
 
     cargarImagenesFirebase(imagenes: FileItem[], user: User) {
         let contadorDeImagenes = 0;

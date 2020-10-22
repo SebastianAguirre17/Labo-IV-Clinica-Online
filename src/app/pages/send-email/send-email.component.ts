@@ -16,8 +16,13 @@ export class SendEmailComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    onSendEmail() {
-        this.auth.sendVerificationEmail();
+    async onSendEmail() {
+        try {
+            this.auth.sendVerificationEmail();
+        }
+        catch(err){
+            console.log(err);
+        }
     }
 
     async iniciarSesion() {
