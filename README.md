@@ -32,7 +32,7 @@ Trabajo práctico obligatorio de Laboratorio de Computación IV.
 
 >El registro como pacieinte implica la carga obligatoria de 2 imágenes.
 
-![principal](https://firebasestorage.googleapis.com/v0/b/clinica-online-3b015.appspot.com/o/readme%2Flogin.gif?alt=media&token=ac01ef19-4790-408c-a870-5428e92584ee)
+![principal](https://firebasestorage.googleapis.com/v0/b/clinica-online-3b015.appspot.com/o/readme%2Flogin.gif?alt=media&token=a4cf74b7-f35d-4586-b277-b42ef624e16b)
 
 
 ### Primer Sprint - 22/08
