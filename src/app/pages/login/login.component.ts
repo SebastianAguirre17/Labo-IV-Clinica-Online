@@ -59,6 +59,8 @@ export class LoginComponent implements OnInit {
                         this.router.navigate(['/home-admin']);
                     else if (userObs.role === 'PROFESIONAL')
                         this.router.navigate(['/home-profesional']);
+                    
+                    Swal.close();
                 });
             }
         } catch (error) {
@@ -74,5 +76,27 @@ export class LoginComponent implements OnInit {
 
         Swal.close();
     }
+
+    setAdmin() {
+        this.forma.setValue({
+            email: 'admin@admin.com',
+            password: '11111111'
+        });
+    }
+
+    setProfesional() {
+        this.forma.setValue({
+            email: 'prof@prof.com',
+            password: '11111111'
+        });
+    }
+
+    setPaciente() {
+        this.forma.setValue({
+            email: 'sebaaguirre2012@gmail.com',
+            password: '11111111'
+        });
+    }
+    
 
 }

@@ -18,6 +18,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
         ReactiveFormsModule
     ],
     exports: [
+        SidebarComponent,
         NavbarComponent
     ]
 })

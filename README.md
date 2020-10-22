@@ -2,9 +2,24 @@
 
 Trabajo práctico obligatorio de Laboratorio de Computación IV.
 
+En esta aplicación se evalúan todos los mecanismos y conocimientos adquiridos en la cursada de la materia, utilizando código abierto y la documentación Web como bibliografía.
+
 [Sitio web desplegado en Heroku](https://sebastian-aguirre-clinica.herokuapp.com)
 
 -----
+
+### Herramientas - Frameworks y Librerías utilizadas
+
+* Anguar  10
+* Typescript
+* Firebase
+* Bootstrap
+* Bootswatch
+* Sweetalert2
+* Animate.css
+* Fontawesome
+
+----
 
 ### Requerimientos de la Aplicación
 
