@@ -1,9 +1,22 @@
-<div class="media" *ngIf="user">
-    <img [src]="user.img1" class="mr-3" alt="...">
-    <img [src]="user.img2" class="mr-3" alt="...">
-    <div class="media-body">
-        <h5 class="mt-0">Bienvenido {{ user.email }}</h5>
+
+
+
+
+<div class="container-main fondo animate__animated animate__fadeIn">
+    <div class="row">
+        <div class="col-2">
+            <app-sidebar [user]="user"></app-sidebar>
+            <!-- <div class="media" *ngIf="user">
+                <img [src]="user.img1" class="mr-3" alt="...">
+                <img [src]="user.img2" class="mr-3" alt="...">
+                <div class="media-body">
+                    <h5 class="mt-0">Bienvenido {{ user.email }}</h5>
+                </div>
+            </div> -->
+        </div>
+        <div class="col-10">
+            <app-titulo [user]="user"></app-titulo>
+            
+        </div>
     </div>
 </div>
-
-<!-- <app-sidebar></app-sidebar> -->

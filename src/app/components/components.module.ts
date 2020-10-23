@@ -4,12 +4,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { TituloComponent } from './titulo/titulo.component';
 
 
 @NgModule({
     declarations: [
         NavbarComponent,
-        SidebarComponent
+        SidebarComponent,
+        TituloComponent
     ],
     imports: [
         CommonModule,
@@ -19,6 +21,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     ],
     exports: [
         SidebarComponent,
+        TituloComponent,
         NavbarComponent
     ]
 })

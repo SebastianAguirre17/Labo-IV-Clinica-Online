@@ -5,18 +5,6 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarColor01">
-        <ul class="navbar-nav mr-auto ml-5">
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" routerLink="home-admin">Home Admin</a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" routerLink="home-profesional">Home Profesional </a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" routerLink="home-paciente">Home Paciente</a>
-            </li>
-        </ul>
-
         <ul class="navbar-nav ml-auto" *ngIf="user$ | async as user; else login">
             <li class="nav-item">
                 <a class="nav-link" (click)="onLogout()">Logout </a>
