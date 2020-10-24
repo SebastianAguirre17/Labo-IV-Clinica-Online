@@ -13,6 +13,7 @@ export class HomePacienteComponent implements OnInit {
 
     public user$: Observable<any> = this.auth.afAuth.user;
     user: User;
+    leyenda = 'Este es su perfil, aquí podrá solicitar turnos, ver su historial y dejar una reseña acerca de la atención recibida.';
    
     private itemsCollection: AngularFirestoreCollection<User>;
     items: Observable<User[]>;

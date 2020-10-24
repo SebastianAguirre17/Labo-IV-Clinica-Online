@@ -1,10 +1,9 @@
-<div class="jumbotron ">
+<div class="jumbotron" *ngIf="user">
     <!-- <div class="container"> -->
         <!-- <div class="row">
             <div class="col-8"> -->
                 <h1 class="display-5">Bienvenido {{ user.email }} </h1>
-                <p class="lead">Este es su perfil, aquí podrá solicitar turnos, ver su historial y dejar una reseña
-                    acerca de la atención recibida.</p>
+                <p class="lead"> {{ leyenda }} </p>
             <!-- </div>
         </div> -->
     <!-- </div> -->

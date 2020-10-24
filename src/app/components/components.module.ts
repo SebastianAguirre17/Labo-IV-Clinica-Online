@@ -5,13 +5,17 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TituloComponent } from './titulo/titulo.component';
+import { SidebarAdminComponent } from './sidebar-admin/sidebar-admin.component';
+import { AgregarAdminComponent } from './agregar-admin/agregar-admin.component';
 
 
 @NgModule({
     declarations: [
         NavbarComponent,
         SidebarComponent,
-        TituloComponent
+        TituloComponent,
+        SidebarAdminComponent,
+        AgregarAdminComponent
     ],
     imports: [
         CommonModule,
@@ -22,7 +26,9 @@ import { TituloComponent } from './titulo/titulo.component';
     exports: [
         SidebarComponent,
         TituloComponent,
-        NavbarComponent
+        NavbarComponent,
+        SidebarAdminComponent,
+        AgregarAdminComponent
     ]
 })
 export class ComponentsModule { }

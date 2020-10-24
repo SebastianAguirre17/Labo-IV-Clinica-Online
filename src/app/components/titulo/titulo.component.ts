@@ -10,6 +10,7 @@ export class TituloComponent implements OnInit {
 
 
     @Input() user: User;
+    @Input() leyenda: string;
 
     constructor() { }
 

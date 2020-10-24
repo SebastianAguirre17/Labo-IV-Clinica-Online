@@ -16,6 +16,7 @@ export class CargaImagenesService {
 
     cargarImagenesFirebase(imagenes: FileItem[], user: User) {
         let contadorDeImagenes = 0;
+        let metadata = { customMetadata: { user: JSON.stringify(user)}};
         const storageRef = firebase.storage().ref();
         for(const item of imagenes) {
             item.subiendo = true;
@@ -24,7 +25,7 @@ export class CargaImagenesService {
             }
 
             const uploadTask: firebase.storage.UploadTask = storageRef.child(`${this.CARPETA_IMAGENES}/${item.nombre}`)
-                                                                        .put(item.archivo);
+                                                                        .put(item.archivo, metadata);
             uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
                 (snapshot: firebase.storage.UploadTaskSnapshot) => item.progreso = (snapshot.bytesTransferred / snapshot.totalBytes) * 100,
                 (err) => {
