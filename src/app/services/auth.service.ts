@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore'
 import { Observable, of } from 'rxjs';
-import { User } from '../models/user.interface';
 import { switchMap } from 'rxjs/operators';
-import { RoleVlidator } from '../helpers/role-validator.class';
 import Swal from 'sweetalert2';
-import { Role } from '../models/roles.types';
+import { RoleVlidator } from '../shared/models/role-validator.class';
+import { Role } from '../shared/models/roles.types';
+import { User } from '../shared/models/user.interface';
 
 @Injectable({
     providedIn: 'root'

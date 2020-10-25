@@ -1,0 +1,137 @@
+<section id="wrapper" class="login-register"
+    style="background-image:url(../assets/images/background/login-register.jpg); background-size:cover;">
+
+    <div class="login-box card border animate__animated animate__backInLeft" *ngIf="!seleccion">
+        <div class="card-body">
+            <form   class="form-horizontal form-material" 
+                    id="loginform" 
+                    [formGroup]="registerForm"
+                    (ngSubmit)="onRegister()">
+
+                <h3 class="box-title m-t-40 m-b-0">Regístrese ahora</h3>
+
+                <div class="form-group m-t-40">
+                    <div class="col-xs-12">
+                        <input class="form-control" type="text" placeholder="Nombre" formControlName="name">
+                    </div>
+                    <small *ngIf="invalidName" class="text-danger">El nombre es requerido</small>
+                </div>
+                <div class="form-group ">
+                    <div class="col-xs-12">
+                        <input class="form-control" type="text" placeholder="Correo electrónico"
+                            formControlName="email">
+                    </div>
+                    <small *ngIf="invalidEmail" class="text-danger">El correo electrónico es incorrecto</small>
+                </div>
+                <div class="form-group ">
+                    <div class="col-xs-12">
+                        <input class="form-control" type="password" placeholder="Contraseña" formControlName="password">
+                    </div>
+                </div>
+                <small *ngIf="invalidPassword" class="text-danger">Contraseña inválida</small>
+
+                <div class="form-group">
+                    <select class="form-control" 
+                            formControlName="role"
+                            (change)='cambiarElementoSeleccionado()'>
+                        <option value="PROFESIONAL"> PROFESIONAL </option>
+                        <option value="PACIENTE"> PACIENTE </option>
+                    </select>
+                </div>
+
+                <div class="row" *ngIf="mostrarImagenes">
+                    <div class="col">
+                        <table class="table tabla">
+                            <thead class="thead-primary">
+                                <tr>
+                                    <th>Nombre del Archivo</th>
+                                    <th>Tamaño</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let archivo of archivos">
+                                    <td [ngClass]="{'text-green': archivo.progreso >= 100}"> {{ archivo.nombre }} </td>
+                                    <td> {{ archivo.archivo.size / 1024 / 1024 | number: '.2-2' }} MB</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group text-center m-t-20" *ngIf="mostrarImagenes">
+                    <div class="col-xs-12">
+                        <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light"
+                            type="button" (click)="seleccion = true">Seleccionar imágenes
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group text-center m-t-20">
+                    <div class="col-xs-12">
+                        <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light"
+                                type="submit"
+                                [disabled]="archivos.length !== 2"
+                                *ngIf="mostrarImagenes">Registrarse
+                        </button>
+                        <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light"
+                                type="submit"
+                                *ngIf="!mostrarImagenes">Registrarse
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group m-b-0">
+                    <div class="col-sm-12 text-center">
+                        <p>¿Ya tiene cuenta?
+                            <a routerLink="/login" class="text-info m-l-5"><b>Iniciar sesión</b></a>
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Imagenes -->
+    <div class="login-box card border animate__animated animate__backInDown" *ngIf="seleccion">
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <div appNgDropFile [archivos]="archivos" (mouseSobre)="estaSobreElemento = $event"
+                        class="weel drop-zone" [ngClass]="{'file-over': estaSobreElemento}">
+                        <h4>Deje caer aquí las imágenes</h4>
+                        <img src="../../../assets/images/drop-images.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <table class="table tabla">
+                        <thead class="thead-primary">
+                            <tr>
+                                <th>Nombre del Archivo</th>
+                                <th>Tamaño</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let archivo of archivos">
+                                <td [ngClass]="{'text-green': archivo.progreso >= 100}"> {{ archivo.nombre }} </td>
+                                <td> {{ archivo.archivo.size / 1024 / 1024 | number: '.2-2' }} MB</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="form-group text-center m-t-20">
+                        <div class="col-xs-12">
+                            <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light"
+                                type="button" (click)="limpiar()">Limpiar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group text-center m-t-20">
+                        <div class="col-xs-12">
+                            <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light"
+                                type="button" (click)="seleccion = false">Continuar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

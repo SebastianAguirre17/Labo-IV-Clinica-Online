@@ -1,37 +1,33 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { ReactiveFormsModule } from '@angular/forms';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireModule } from '@angular/fire';
-import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { PagesModule } from './pages/pages.module';
-import { ComponentsModule } from './components/components.module';
+import { AuthModule } from './auth/auth.module';
 
 import { AppComponent } from './app.component';
-
+import { NopagefoundComponent } from './nopagefound/nopagefound.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
-
 
 @NgModule({
     declarations: [
-        AppComponent
-       
+        AppComponent,
+        NopagefoundComponent,
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
-        ReactiveFormsModule,
+        PagesModule,
+        AuthModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
         AngularFireAuthModule,
         AngularFirestoreModule,
-        PagesModule,
-        ComponentsModule,
-        HttpClientModule
     ],
-    providers: [],
-    bootstrap: [AppComponent]
+    bootstrap: [
+        AppComponent
+    ]
 })
 export class AppModule { }

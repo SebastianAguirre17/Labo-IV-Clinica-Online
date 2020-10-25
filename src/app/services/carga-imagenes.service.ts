@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import * as firebase from 'firebase';
 import Swal from 'sweetalert2';
-import { FileItem } from '../models/file-item.class';
-import { User } from '../models/user.interface';
+import { FileItem } from '../shared/models/file-item.class';
+import { User } from '../shared/models/user.interface';
 
 @Injectable({
     providedIn: 'root'

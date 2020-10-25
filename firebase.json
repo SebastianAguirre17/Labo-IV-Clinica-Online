@@ -1,8 +1,8 @@
 {
   "hosting": [
     {
-      "target": "clinica",
-      "public": "dist/clinica",
+      "target": "admin",
+      "public": "dist/admin",
       "ignore": [
         "**/.*"
       ],

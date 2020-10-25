@@ -1,46 +1,33 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { ComponentsModule } from '../components/components.module';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { SendEmailComponent } from './send-email/send-email.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { HomeAdminComponent } from './home-admin/home-admin.component';
-import { HomePacienteComponent } from './home-paciente/home-paciente.component';
-import { HomeProfesionalComponent } from './home-profesional/home-profesional.component';
-import { NgDropFileDirective } from '../directives/ng-drop-files.directive';
+import { SharedModule } from '../shared/shared.module';
+
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProgressComponent } from './progress/progress.component';
+import { Grafica1Component } from './grafica1/grafica1.component';
+import { PagesComponent } from './pages.component';
 
 
 
 @NgModule({
     declarations: [
-        LoginComponent,
-        RegisterComponent,
-        SendEmailComponent,
-        ForgotPasswordComponent,
-        HomeAdminComponent,
-        HomePacienteComponent,
-        HomeProfesionalComponent,
-        NgDropFileDirective
+        DashboardComponent,
+        ProgressComponent,
+        Grafica1Component,
+        PagesComponent
     ],
     imports: [
         CommonModule,
-        ComponentsModule,
-        RouterModule,
-        FormsModule,
-        ReactiveFormsModule
+        SharedModule,
+        RouterModule
     ],
     exports: [
-        LoginComponent,
-        RegisterComponent,
-        SendEmailComponent,
-        ForgotPasswordComponent,
-        HomeAdminComponent,
-        HomePacienteComponent,
-        HomeProfesionalComponent
+        DashboardComponent,
+        ProgressComponent,
+        Grafica1Component,
+        PagesComponent
     ]
 })
 export class PagesModule { }
