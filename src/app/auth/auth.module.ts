@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxCaptchaModule } from 'ngx-captcha';
 import { NgDropFileDirective } from './directives/ng-drop-file.directive';
 import { VerificationComponent } from './verification/verification.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+
 
 @NgModule({
     declarations: [
@@ -17,7 +19,8 @@ import { VerificationComponent } from './verification/verification.component';
     imports: [
         CommonModule,
         RouterModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        NgxCaptchaModule
     ],
     exports: [
         LoginComponent,

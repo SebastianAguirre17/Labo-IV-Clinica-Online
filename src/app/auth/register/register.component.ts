@@ -19,17 +19,22 @@ export class RegisterComponent implements OnInit {
     estaSobreElemento: boolean = false;
     archivos: FileItem[] = [];
 
+    siteKey: string;
+
     public registerForm = this.fb.group({
         name: ['', [Validators.required, Validators.minLength(2)]],
         email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
         password: ['', [Validators.required, Validators.minLength(8)]],
-        role: ['PROFESIONAL', Validators.required]
+        role: ['PROFESIONAL', Validators.required],
+        recaptcha: ['', Validators.required]
     });
 
     constructor(private fb: FormBuilder,
                 private auth: AuthService,
                 private router: Router,
-                private _carga: CargaImagenesService) { }
+                private _carga: CargaImagenesService) { 
+        this.siteKey = '6LfrydsZAAAAAKvM5aDY2_8WkPMg9mhVnXeaRE99';
+    }
 
     ngOnInit(): void {
     }
@@ -44,6 +49,10 @@ export class RegisterComponent implements OnInit {
 
     get invalidName() {
         return this.registerForm.get('name').invalid && this.registerForm.get('name').touched;
+    }
+
+    get invalidCaptcha() {
+        return this.registerForm.get('recaptcha').invalid && this.registerForm.get('recaptcha').touched;
     }
 
     async onRegister() {
