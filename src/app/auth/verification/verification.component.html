@@ -6,7 +6,7 @@
         <div class="card-body">
             <h3 class="card-item text-center"> Gracias por registrarte en</h3>
             <h3 class="card-item text-center"> <strong>CLÍNICA ONLINE</strong></h3>
-            <div class="form-group">
+            <div class="form-group" *ngIf="user?.role == 'PACIENTE'">
                 <p class="text-center mt-5">
                     Hemos enviado un correo de verificación a <strong> {{ user?.email }} </strong>
                 </p>
@@ -14,8 +14,16 @@
                     Por favor verifica tu casilla.
                 </p>
             </div>
+            <div class="form-group" *ngIf="user?.role != 'PACIENTE'">
+                <p class="text-center mt-5">
+                    Aún no has sido autorizado
+                </p>
+                <p class="text-center">
+                    Por favor, comunícate con el administrador.
+                </p>
+            </div>
 
-            <div class="form-group text-center m-t-20">
+            <div class="form-group text-center m-t-20" *ngIf="user?.role == 'PACIENTE'">
                 <div class="col-xs-12">
                     <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="button"
                         (click)="onSendEmail()">Reenviar correo</button>

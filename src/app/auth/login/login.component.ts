@@ -48,20 +48,22 @@ export class LoginComponent implements OnInit {
 
             if (user) {
                 this.auth.user$.subscribe(userObs => {
-                    if (userObs.role === 'PACIENTE') {
-                        if (!userObs.emailVerified) {
-                            if(user.emailVerified)
-                                this.auth.updateEmailVerified(userObs);
-                            else    
-                                this.router.navigate(['/verification']);
-                            
-                        }
-                        else
+                    if(userObs) {
+                        if(userObs.emailVerified) {
                             this.router.navigate(['/dashboard']);
+                        }else {
+                            if (userObs.role === 'PACIENTE' && user.emailVerified) {
+                                this.auth.updateEmailVerified(userObs);
+                                this.router.navigate(['/dashboard']);
+                            } else {
+                                this.router.navigate(['/verification']);
+                            }
+    
+                        }
                     }
-                    else if (userObs.role === 'ADMIN' || userObs.role === 'PROFESIONAL')
-                        this.router.navigate(['/dashboard']);
-
+                    else {
+                        console.log('ERR');
+                    }
                     Swal.close();
                 });
             }

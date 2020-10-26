@@ -47,7 +47,7 @@ En esta aplicación se evalúan todos los mecanismos y conocimientos adquiridos 
 
 >El registro como pacieinte implica la carga obligatoria de 2 imágenes.
 
-![principal](https://firebasestorage.googleapis.com/v0/b/clinica-online-3b015.appspot.com/o/readme%2Flogin.gif?alt=media&token=a4cf74b7-f35d-4586-b277-b42ef624e16b)
+![principal](https://firebasestorage.googleapis.com/v0/b/clinica-online-3b015.appspot.com/o/readme%2Flogin.gif?alt=media&token=56c99767-e7f7-45a4-887b-b6f63ed196a9)
 
 
 ### Primer Sprint - 22/08
@@ -63,3 +63,25 @@ En esta aplicación se evalúan todos los mecanismos y conocimientos adquiridos 
 * Proyecto subido a Heroku
 
 * Pantallas iniciales para cada perfil (En proceso)
+
+----
+
+### Segundo Sprint - 29/08
+
+* Captcha de Google
+
+* Readme
+
+* Creación de nuevos usarios Admin
+
+* Solicitud de turnos por parte de pacientes
+
+* Listado de turnos pendientes
+
+* Manejo de turnos por parte de profesionales
+
+* Atención de pacientes
+
+* Gestión de usuarios
+
+![principal](https://firebasestorage.googleapis.com/v0/b/clinica-online-3b015.appspot.com/o/readme%2Fadmin.gif?alt=media&token=9bc1cbb2-cb72-4d54-9ec8-0ac2f57efdd2)

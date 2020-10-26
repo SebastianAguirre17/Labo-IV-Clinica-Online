@@ -50,9 +50,8 @@
                                 <td> {{ item.name }} </td>
                                 <td> {{ item.role }} </td>
                                 <td>
-                                    <span *ngIf="item.emailVerified" class="label label-success">Activo</span>
-                                    <button class="btn btn-danger btn-sm" *ngIf="!item.emailVerified"(click)="activar()" >Activar</button>
-
+                                    <span class="label label-success"  *ngIf="!item.emailVerified"(click)="activar(item)">Activar</span>
+                                    <span class="label label-danger"  *ngIf="item.emailVerified"(click)="desactivar(item)" >Desactivar</span>
                                 </td>
                             </tr>
                         </tbody>

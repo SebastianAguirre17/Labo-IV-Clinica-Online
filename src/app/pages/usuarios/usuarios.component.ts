@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
+import { User } from 'src/app/shared/models/user.interface';
 
 @Component({
     selector: 'app-usuarios',
@@ -21,14 +22,22 @@ export class UsuariosComponent implements OnInit {
 
     getUsuarios() {
         this.isLoading = true;
-        this.dbService.GetUsers()
-            .then(result => {
+        this.dbService.getAll('users')
+            .subscribe(resp => {
                 this.isLoading = false;
-                this.listado = result;
+                this.listado = resp;
             });
     }
 
-    activar() {
-        console.log('Activar usuario');
+    activar(user: User) {
+        user.emailVerified  = true;
+        this.dbService.updateOne(user, 'users');
+        
+    }
+
+    desactivar(user: User) {
+        user.emailVerified  = false;
+        this.dbService.updateOne(user, 'users');
+        
     }
 }
