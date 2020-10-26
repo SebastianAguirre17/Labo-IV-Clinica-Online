@@ -26,7 +26,8 @@ export class AuthService extends RoleVlidator {
                 }
                 return of(null);
             })
-        )
+        );
+
     }
 
     async resetPassword(email: string) {
@@ -101,10 +102,11 @@ export class AuthService extends RoleVlidator {
         }
     }
 
-    updateRolUser(user: User, rol: Role) {
+    updateRolUser(user: User, rol: Role, name: string) {
         const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
         const data: User = {
             uid: user.uid,
+            name: name,
             email: user.email,
             emailVerified: user.emailVerified,
             role: rol
@@ -113,5 +115,16 @@ export class AuthService extends RoleVlidator {
         return userRef.set(data, { merge: true });
     }
 
-    
+    updateStateUser(user: User, name: string) {
+        const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
+        const data: User = {
+            uid: user.uid,
+            name: name,
+            email: user.email,
+            emailVerified: true,
+            role: 'ADMIN'
+        }
+
+        return userRef.set(data, { merge: true });
+    }
 }

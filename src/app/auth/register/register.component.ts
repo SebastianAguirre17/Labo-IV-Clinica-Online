@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
     archivos: FileItem[] = [];
 
     public registerForm = this.fb.group({
-        name: ['', Validators.required, Validators.minLength(2)],
+        name: ['', [Validators.required, Validators.minLength(2)]],
         email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
         password: ['', [Validators.required, Validators.minLength(8)]],
         role: ['PROFESIONAL', Validators.required]
@@ -56,12 +56,12 @@ export class RegisterComponent implements OnInit {
             });
         }
 
-        const { email, password, role } = this.registerForm.value;
+        const { email, password, role, name } = this.registerForm.value;
         
         try {
             const user = await this.auth.register(email, password);
             
-            this.auth.updateRolUser(user, role);
+            this.auth.updateRolUser(user, role, name);
             
             Swal.close();
             if(role === 'PACIENTE') {

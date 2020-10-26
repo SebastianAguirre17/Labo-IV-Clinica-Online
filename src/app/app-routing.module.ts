@@ -7,7 +7,7 @@ import { AuthRoutingModule } from './auth/auth.routing';
 import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 
 const routes: Routes = [
-    { path: '', pathMatch: 'full', redirectTo: 'register'},
+    { path: '', pathMatch: 'full', redirectTo: 'dashboard'},
     { path: '**', component: NopagefoundComponent } 
 ];
 

@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
                 this.auth.user$.subscribe(userObs => {
                     if (userObs.role === 'PACIENTE')
                         this.checkUserIsVerified(user);
-                    else if (userObs.role === 'ADMIN')
+                    else if (userObs.role === 'ADMIN' || userObs.role === 'PROFESIONAL')
                         this.router.navigate(['/dashboard']);
                     
                     Swal.close();
