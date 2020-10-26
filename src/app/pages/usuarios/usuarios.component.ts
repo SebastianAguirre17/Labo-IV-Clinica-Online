@@ -25,6 +25,10 @@ export class UsuariosComponent implements OnInit {
             .then(result => {
                 this.isLoading = false;
                 this.listado = result;
-            })
+            });
+    }
+
+    activar() {
+        console.log('Activar usuario');
     }
 }

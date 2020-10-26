@@ -16,11 +16,11 @@ export class ProfesionalGuard implements CanActivate {
     canActivate(): Observable<boolean> | Promise<boolean> | boolean {
         return this.auth.user$.pipe(
             take(1),
-            map((user) => user && this.auth.isProfessional(user)),
+            map((user) => user && this.auth.isProfessional(user) && user.emailVerified),
             tap((canProfesional) => {
                 if(!canProfesional) {
                     Swal.fire({
-                        text: 'Debe ser Profesional para acceder a la ruta especificada.',
+                        text: 'No está habilitado para acceder a la ruta especificada.',
                         allowOutsideClick: false,
                         showCloseButton: true,
                         icon: 'error',

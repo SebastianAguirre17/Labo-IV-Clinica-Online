@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
-    styleUrls: ['./login.component.css' ]
+    styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
 
@@ -18,8 +18,8 @@ export class LoginComponent implements OnInit {
     });
 
     constructor(private fb: FormBuilder,
-                private auth: AuthService,
-                private router: Router) { }
+        private auth: AuthService,
+        private router: Router) { }
 
     ngOnInit(): void {
     }
@@ -48,26 +48,26 @@ export class LoginComponent implements OnInit {
 
             if (user) {
                 this.auth.user$.subscribe(userObs => {
-                    if (userObs.role === 'PACIENTE')
-                        this.checkUserIsVerified(user);
+                    if (userObs.role === 'PACIENTE') {
+                        if (!userObs.emailVerified) {
+                            if(user.emailVerified)
+                                this.auth.updateEmailVerified(userObs);
+                            else    
+                                this.router.navigate(['/verification']);
+                            
+                        }
+                        else
+                            this.router.navigate(['/dashboard']);
+                    }
                     else if (userObs.role === 'ADMIN' || userObs.role === 'PROFESIONAL')
                         this.router.navigate(['/dashboard']);
-                    
+
                     Swal.close();
                 });
             }
         } catch (error) {
             console.log(error);
         }
-    }
-
-    private checkUserIsVerified(user: User) {
-        if (user && user.emailVerified)
-            this.router.navigate(['/dashboard']);
-        else if (user)
-            this.router.navigate(['/verification']);
-
-        Swal.close();
     }
 
     setAdmin() {

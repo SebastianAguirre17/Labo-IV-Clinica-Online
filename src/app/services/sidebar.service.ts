@@ -7,7 +7,7 @@ export class SidebarService {
 
     menuPacientes: any[] = [
         {
-            titulo: 'Menú Pacientes',
+            titulo: 'Pacientes',
             icono: 'mdi mdi-gauge',
             submenu: [
                 { titulo: 'Ver turnos', url: 'turnos' },
@@ -20,13 +20,13 @@ export class SidebarService {
 
     menuProfesionales: any[] = [
         {
-            titulo: 'Principal',
+            titulo: 'Profesionales',
             icono: 'mdi mdi-gauge',
             submenu: [
-                { titulo: 'Definir horarios', url: 'turnos' },
-                { titulo: 'Ver turnos pendientes', url: 'sacar-turno' },
-                { titulo: 'Cancelar turno', url: 'cancelar-turno' },
-                { titulo: 'Atender paciente', url: 'resenia' }
+                { titulo: 'Definir horarios', url: 'atender-pacientes' },
+                { titulo: 'Ver turnos pendientes', url: 'atender-pacientes' },
+                { titulo: 'Cancelar turno', url: 'atender-pacientes' },
+                { titulo: 'Atender paciente', url: 'atender-pacientes' }
             ]
         }
     ];

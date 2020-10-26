@@ -13,6 +13,7 @@ import { ReseniaComponent } from './resenia/resenia.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { AgregarUsuarioComponent } from './agregar-usuario/agregar-usuario.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AtenderPacienteComponent } from './atender-paciente/atender-paciente.component';
 
 @NgModule({
     declarations: [
@@ -23,7 +24,8 @@ import { ReactiveFormsModule } from '@angular/forms';
         CancelarTurnoComponent,
         ReseniaComponent,
         UsuariosComponent,
-        AgregarUsuarioComponent
+        AgregarUsuarioComponent,
+        AtenderPacienteComponent
     ],
     imports: [
         CommonModule,
@@ -39,6 +41,7 @@ import { ReactiveFormsModule } from '@angular/forms';
         CancelarTurnoComponent,
         ReseniaComponent,
         UsuariosComponent,
+        AtenderPacienteComponent,
         AgregarUsuarioComponent
     ]
 })

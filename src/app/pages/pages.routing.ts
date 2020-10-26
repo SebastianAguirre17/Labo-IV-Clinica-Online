@@ -12,6 +12,8 @@ import { AuthGuard } from '../guards/auth.guard';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { AgregarUsuarioComponent } from './agregar-usuario/agregar-usuario.component';
 import { AdminGuard } from '../guards/admin.guard';
+import { AtenderPacienteComponent } from './atender-paciente/atender-paciente.component';
+import { ProfesionalGuard } from '../guards/profesional.guard';
 
 const routes: Routes = [
 
@@ -25,6 +27,7 @@ const routes: Routes = [
             { path: 'usuarios', component: UsuariosComponent, data: { titulo: 'Usuarios'}, canActivate: [AdminGuard] },
             { path: 'sacar-turno', component: SacarTurnoComponent, data: { titulo: 'Sacar turno'} },
             { path: 'cancelar-turno', component: CancelarTurnoComponent, data: { titulo: 'Cancelar turno'} },
+            { path: 'atender-pacientes', component: AtenderPacienteComponent, data: { titulo: 'Atender paciente'}, canActivate: [ProfesionalGuard] },
             { path: 'turnos', component: TurnosComponent, data: { titulo: 'Turnos'}, canActivate: [PacienteGuard] }
         ]
     }

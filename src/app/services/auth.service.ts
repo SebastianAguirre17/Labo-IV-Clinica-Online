@@ -16,9 +16,9 @@ export class AuthService extends RoleVlidator {
     public user$: Observable<User>;
 
     constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore) {
-        
+
         super();
-        
+
         this.user$ = this.afAuth.authState.pipe(
             switchMap((user) => {
                 if (user) {
@@ -59,7 +59,7 @@ export class AuthService extends RoleVlidator {
                 email,
                 password
             );
-            
+
             return user;
         } catch (error) {
             Swal.fire({
@@ -127,4 +127,14 @@ export class AuthService extends RoleVlidator {
 
         return userRef.set(data, { merge: true });
     }
+
+    updateEmailVerified(user: User) {
+        const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
+
+        userRef.update({
+            emailVerified: true
+        })
+
+    }
+
 }
