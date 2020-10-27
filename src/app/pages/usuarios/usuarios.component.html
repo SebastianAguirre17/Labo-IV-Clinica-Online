@@ -23,41 +23,38 @@
     </div>
 </div>
 
+<h3 class="card-title mb-5">Profesionales Registrados ( {{ listado.length }} )</h3>
+
 <div class="row animated fadeIn fast" *ngIf="!isLoading">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Usuarios registrados ( {{ listado.length }} )</h4>
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Avatar</th>
-                                <th>Correo</th>
-                                <th>Nombre</th>
-                                <th>Rol</th>
-                                <th class="text-nowrap">Estado</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let item of listado">
-                                <td>
-                                    <img *ngIf="item.img1" [src]="item.img1" alt="" width="100" height="100">
-                                    <img *ngIf="!item.img1" src="../../../assets/images/default.jpg" alt="" width="100"
-                                        height="100">
-                                </td>
-                                <td> {{ item.email }} </td>
-                                <td> {{ item.name }} </td>
-                                <td> {{ item.role }} </td>
-                                <td>
-                                    <span class="label label-success"  *ngIf="!item.emailVerified"(click)="activar(item)">Activar</span>
-                                    <span class="label label-danger"  *ngIf="item.emailVerified"(click)="desactivar(item)" >Desactivar</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+    <div class="col-md-6 col-lg-6 col-xlg-4" *ngFor="let item of listado">
+        <div class="card card-body" >
+            <div class="row">
+                <div class="col-md-4 col-lg-3 text-center">
+                    <a>
+                        <img *ngIf="item.img1" [src]="item.img1" alt=""  class="img-circle img-responsive">
+                        <img *ngIf="!item.img1" src="../../../assets/images/default.jpg" alt="" class="img-circle img-responsive">
+                    </a>
                 </div>
+                <div class="col-md-8 col-lg-9">
+                    <h3 class="box-title m-b-0">{{ item.name }} </h3> <small>{{ item.role }}</small>
+                    <br>
+                    <p> {{ item?.especialidades}} </p>
+                    <address>
+                        {{ item.email }}
+                        <br>
+                        <br>
+                    </address>
+                </div>
+                <div class="col-md-8 col-lg-9 text-center">
+                    <span class="label label-success" *ngIf="!item.emailVerified" (click)="activar(item)">Activar</span>
+                    <span class="label label-danger" *ngIf="item.emailVerified" (click)="desactivar(item)">Desactivar</span>
+                </div>
+    
             </div>
         </div>
     </div>
 </div>
+
+
+
+

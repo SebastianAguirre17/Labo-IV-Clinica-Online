@@ -1,3 +1,4 @@
+import { Especialidad } from './especialidades.type';
 import { Role } from './roles.types';
 
 export interface User {
@@ -9,4 +10,5 @@ export interface User {
     role?: Role;
     img1?: string;
     img2?: string;
+    especialidades?: Array<Especialidad>
 }

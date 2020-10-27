@@ -4,6 +4,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import Swal from 'sweetalert2';
+import { Especialidad } from '../shared/models/especialidades.type';
 import { RoleVlidator } from '../shared/models/role-validator.class';
 import { Role } from '../shared/models/roles.types';
 import { User } from '../shared/models/user.interface';
@@ -137,4 +138,17 @@ export class AuthService extends RoleVlidator {
 
     }
 
+    updateEspecialidad(user: User, especialidad: Especialidad) {
+        const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
+        let especialidades: Especialidad[] = [];
+
+        if(user.especialidades)
+            especialidades = user.especialidades;
+
+        especialidades.push(especialidad);
+
+        userRef.update({
+            especialidades: especialidades
+        });
+    }
 }

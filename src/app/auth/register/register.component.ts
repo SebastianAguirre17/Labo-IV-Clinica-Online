@@ -26,7 +26,8 @@ export class RegisterComponent implements OnInit {
         email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
         password: ['', [Validators.required, Validators.minLength(8)]],
         role: ['PROFESIONAL', Validators.required],
-        recaptcha: ['', Validators.required]
+        recaptcha: ['', Validators.required],
+        especialidad: ['CLINICO', Validators.required]
     });
 
     constructor(private fb: FormBuilder,
@@ -65,7 +66,7 @@ export class RegisterComponent implements OnInit {
             });
         }
 
-        const { email, password, role, name } = this.registerForm.value;
+        const { email, password, role, name, especialidad } = this.registerForm.value;
         
         try {
             const user = await this.auth.register(email, password);
@@ -77,6 +78,10 @@ export class RegisterComponent implements OnInit {
                 this.cargarImagenes(user);
                 this.router.navigate(['/verification']);
             }
+            else if(role === 'PROFESIONAL') {
+                this.auth.updateEspecialidad(user, especialidad);
+                this.router.navigate(['/login']);
+            }
             else 
                 this.router.navigate(['/login']);
         }
@@ -86,7 +91,6 @@ export class RegisterComponent implements OnInit {
     }
 
     cambiarElementoSeleccionado() {
-        console.log('object');
         if(this.registerForm.value.role === 'PACIENTE') 
             this.mostrarImagenes = true
         else    

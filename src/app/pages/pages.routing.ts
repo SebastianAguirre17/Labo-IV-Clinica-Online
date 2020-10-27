@@ -23,10 +23,10 @@ const routes: Routes = [
         children: [
             { path: '', component: DashboardComponent, data: { titulo: 'Principal'}, canActivate: [AuthGuard] }, 
             { path: 'agregar-usuario', component: AgregarUsuarioComponent, data: { titulo: 'Agregar usuario'}, canActivate: [AdminGuard] },
-            { path: 'resenia', component: ReseniaComponent, data: { titulo: 'Reseña'} },
+            { path: 'resenia', component: ReseniaComponent, data: { titulo: 'Reseña'}, canActivate: [PacienteGuard] },
             { path: 'usuarios', component: UsuariosComponent, data: { titulo: 'Usuarios'}, canActivate: [AdminGuard] },
-            { path: 'sacar-turno', component: SacarTurnoComponent, data: { titulo: 'Sacar turno'} },
-            { path: 'cancelar-turno', component: CancelarTurnoComponent, data: { titulo: 'Cancelar turno'} },
+            { path: 'sacar-turno', component: SacarTurnoComponent, data: { titulo: 'Sacar turno'}, canActivate: [PacienteGuard] },
+            { path: 'cancelar-turno', component: CancelarTurnoComponent, data: { titulo: 'Cancelar turno'}, canActivate: [PacienteGuard] },
             { path: 'atender-pacientes', component: AtenderPacienteComponent, data: { titulo: 'Atender paciente'}, canActivate: [ProfesionalGuard] },
             { path: 'turnos', component: TurnosComponent, data: { titulo: 'Turnos'}, canActivate: [PacienteGuard] }
         ]

@@ -1,1 +1,43 @@
-<p>sacar-turno works!</p>
+<!-- <div class="row animated fadeIn fast">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Sacar turno</h4>
+                <h6 class="card-subtitle"></h6>
+                <form class="form p-t-20" [formGroup]="turnoForm" (ngSubmit)="crearUsuario()">
+
+                    <div class="form-group">
+                        <label for="nameInput" [class.text-danger]="invalidDate">Día</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-time"></i></div>
+                            <input type="date" class="form-control" id="nameInput"
+                                placeholder="Fecha" formControlName="date">
+                        </div>
+                        <small *ngIf="invalidDate" class="text-danger">La fecha es incorrecta</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputTime" [class.text-danger]="invalidTime">Hora</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-time"></i></div>
+                            <input type="time" class="form-control" id="inputTime"
+                            min="09:00" max="18:00" required formControlName="time">
+                        </div>
+                        <small *ngIf="invalidEmail" class="text-danger">El correo es incorrecto</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd1" [class.text-danger]="invalidPassword">Contraseña</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-lock"></i></div>
+                            <input type="password" class="form-control" id="pwd1" placeholder="Contraseña"
+                                formControlName="password">
+                        </div>
+                        <small *ngIf="invalidPassword" class="text-danger">La contraseña es incorrecta</small>
+                    </div>
+
+                    <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Crear</button>
+                    <button type="button" class="btn btn-inverse waves-effect waves-light" (click)="cancelar()">Cancelar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> -->

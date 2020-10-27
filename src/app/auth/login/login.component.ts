@@ -54,6 +54,7 @@ export class LoginComponent implements OnInit {
                         }else {
                             if (userObs.role === 'PACIENTE' && user.emailVerified) {
                                 this.auth.updateEmailVerified(userObs);
+                                console.log('Entreeeee');
                                 this.router.navigate(['/dashboard']);
                             } else {
                                 this.router.navigate(['/verification']);
@@ -88,7 +89,7 @@ export class LoginComponent implements OnInit {
 
     setPaciente() {
         this.loginForm.setValue({
-            email: 'sebaaguirre2012@gmail.com',
+            email: 'sebaaguirre2012@outlook.com',
             password: '11111111'
         });
     }

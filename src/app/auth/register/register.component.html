@@ -35,6 +35,15 @@
                     </select>
                 </div>
 
+                <div class="form-group" *ngIf="!mostrarImagenes">
+                    <select class="form-control" formControlName="especialidad">
+                        <option value="CLINICO"> CLÍNICO </option>
+                        <option value="ODONTOLOGO"> ODONTÓLOGO </option>
+                        <option value="PEDIATRA"> PEDIATRA </option>
+                        <option value="OFTALMOLOGO"> OFTALMÓLOGO </option>
+                    </select>
+                </div>
+
                 <div class="row" *ngIf="mostrarImagenes">
                     <div class="col">
                         <table class="table tabla">
