@@ -51,12 +51,16 @@ export class AgregarUsuarioComponent implements OnInit {
         this.auth.register(email, password).then(user => {
             if(user) {
                 this.auth.updateStateUser(user, name).then((user) => {
-                    this.auth.logout();
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'Usuario agregado',
+                        text: 'El usuario fue creado correctamente',
+                        showConfirmButton: true
+                    });
                 });
-                Swal.close();
                 this.cancelar();
             }
-            this.auth.login('admin@admin.com', '11111111');
+            Swal.close();
         });
     }
 

@@ -14,6 +14,7 @@ import { AgregarUsuarioComponent } from './agregar-usuario/agregar-usuario.compo
 import { AdminGuard } from '../guards/admin.guard';
 import { AtenderPacienteComponent } from './atender-paciente/atender-paciente.component';
 import { ProfesionalGuard } from '../guards/profesional.guard';
+import { UsuariosAdminComponent } from './usuarios-admin/usuarios-admin.component';
 
 const routes: Routes = [
 
@@ -24,7 +25,8 @@ const routes: Routes = [
             { path: '', component: DashboardComponent, data: { titulo: 'Principal'}, canActivate: [AuthGuard] }, 
             { path: 'agregar-usuario', component: AgregarUsuarioComponent, data: { titulo: 'Agregar usuario'}, canActivate: [AdminGuard] },
             { path: 'resenia', component: ReseniaComponent, data: { titulo: 'Reseña'}, canActivate: [PacienteGuard] },
-            { path: 'usuarios', component: UsuariosComponent, data: { titulo: 'Usuarios'}, canActivate: [AdminGuard] },
+            { path: 'usuarios', component: UsuariosComponent, data: { titulo: 'Profesionales'}, canActivate: [AdminGuard] },
+            { path: 'usuarios-admin', component: UsuariosAdminComponent, data: { titulo: 'Administradores'}, canActivate: [AdminGuard] },
             { path: 'sacar-turno', component: SacarTurnoComponent, data: { titulo: 'Sacar turno'}, canActivate: [PacienteGuard] },
             { path: 'cancelar-turno', component: CancelarTurnoComponent, data: { titulo: 'Cancelar turno'}, canActivate: [PacienteGuard] },
             { path: 'atender-pacientes', component: AtenderPacienteComponent, data: { titulo: 'Atender paciente'}, canActivate: [ProfesionalGuard] },

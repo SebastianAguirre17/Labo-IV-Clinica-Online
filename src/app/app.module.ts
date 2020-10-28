@@ -15,7 +15,7 @@ import { environment } from 'src/environments/environment';
 @NgModule({
     declarations: [
         AppComponent,
-        NopagefoundComponent,
+        NopagefoundComponent
     ],
     imports: [
         BrowserModule,

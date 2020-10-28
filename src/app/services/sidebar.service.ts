@@ -36,7 +36,8 @@ export class SidebarService {
             titulo: 'Admin',
             icono: 'mdi mdi-gauge',
             submenu: [
-                { titulo: 'Ver usuarios', url: 'usuarios' },
+                { titulo: 'Ver Profesionales', url: 'usuarios' },
+                { titulo: 'Ver Administradores', url: 'usuarios-admin' },
                 { titulo: 'Agregar usuario', url: 'agregar-usuario' }
             ]
         }

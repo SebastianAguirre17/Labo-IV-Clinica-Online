@@ -14,6 +14,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { AgregarUsuarioComponent } from './agregar-usuario/agregar-usuario.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AtenderPacienteComponent } from './atender-paciente/atender-paciente.component';
+import { UsuariosAdminComponent } from './usuarios-admin/usuarios-admin.component';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import { AtenderPacienteComponent } from './atender-paciente/atender-paciente.co
         ReseniaComponent,
         UsuariosComponent,
         AgregarUsuarioComponent,
-        AtenderPacienteComponent
+        AtenderPacienteComponent,
+        UsuariosAdminComponent
     ],
     imports: [
         CommonModule,
@@ -42,7 +44,8 @@ import { AtenderPacienteComponent } from './atender-paciente/atender-paciente.co
         ReseniaComponent,
         UsuariosComponent,
         AtenderPacienteComponent,
-        AgregarUsuarioComponent
+        AgregarUsuarioComponent,
+        UsuariosAdminComponent
     ]
 })
 export class PagesModule { }
