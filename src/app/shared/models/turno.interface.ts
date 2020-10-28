@@ -1,11 +1,12 @@
 import { Time } from '@angular/common';
-import { ProfesionalGuard } from 'src/app/guards/profesional.guard';
+import { Estado } from './estado-turno.type';
 import { User } from './user.interface';
 
 export interface Turno {
-    user: User,
+    user?: User;
     profesional?: User; 
-    dia: Date,
-    hora: Time,
-    
+    especialidad?: string;
+    dia?: Date;
+    hora?: Time;
+    estado?: Estado;
 }

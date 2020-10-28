@@ -9,8 +9,6 @@ import { User } from 'src/app/shared/models/user.interface';
 })
 export class UsuariosComponent implements OnInit {
 
-    public listadoParaCompartir: Array<any>;
-
     isLoading: boolean = false;
     listado: any[] = [];
 

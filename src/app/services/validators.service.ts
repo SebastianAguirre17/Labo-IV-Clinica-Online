@@ -21,4 +21,19 @@ export class ValidatorsService {
             ainvalidTimeFormat: true
         }
     }
+
+    invalidDate(control: FormControl): {[s: string]: boolean} {
+        
+        let hoy = new Date().getTime();
+        let diaElegido = new Date(control.value);
+        let proximo = new Date();
+        proximo.setDate(new Date().getDate() + 14);
+
+        if(diaElegido.getTime() < hoy || diaElegido.getTime() > proximo.getTime() || diaElegido.getDay() === 5 || diaElegido.getDay() === 6) {
+            return {
+                ainvalidTimeFormat: true
+            }
+        }
+        return null;
+    }
 }

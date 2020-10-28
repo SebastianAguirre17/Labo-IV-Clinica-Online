@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs/internal/Observable';
 import { AuthService } from 'src/app/services/auth.service';
 import { DataService } from 'src/app/services/data.service';
 import { ValidatorsService } from 'src/app/services/validators.service';
+import { Turno } from 'src/app/shared/models/turno.interface';
+import { User } from 'src/app/shared/models/user.interface';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -13,16 +16,24 @@ import Swal from 'sweetalert2';
 export class SacarTurnoComponent implements OnInit {
     
     turnoForm: FormGroup;
-    listadoMedicos: any[] = [];
+    listadoMedicos: User[] = [];
+    user: User;
+    medico: User;
 
     constructor(private fb: FormBuilder,
                 private auth: AuthService,
                 private myValidator: ValidatorsService,
-                private dbService: DataService) { }
+                private dbService: DataService) {
+    }
 
     ngOnInit(): void {
         this.crearFormulario();
         this.getProfesionales();
+        this.auth.user$.subscribe(userObs => {
+            this.dbService.getOne(userObs.uid, 'users').subscribe((user: User) => {
+                this.user = user;
+            });
+        });
     }
 
     get invalidDate() {
@@ -39,7 +50,7 @@ export class SacarTurnoComponent implements OnInit {
 
     crearFormulario() {
         this.turnoForm = this.fb.group({
-            date: ['', [Validators.required]],
+            date: ['', [Validators.required, this.myValidator.invalidDate]],
             time: ['09:00', [Validators.required, Validators.min(9), Validators.max(18), this.myValidator.invalidTimeFormat]],
             especialidad: ['CLINICO', [Validators.required]],
             medic: ['', [Validators.required]]
@@ -55,8 +66,36 @@ export class SacarTurnoComponent implements OnInit {
                     control.markAsTouched();
             });
         }
+     
+        Swal.fire({
+            text: 'Espere por favor...',
+            icon: 'info'
+        });
+        Swal.showLoading();
 
-        console.log(this.turnoForm.value);
+        const { especialidad, date, time, medic } = this.turnoForm.value;
+        
+        this.dbService.getOne(medic, 'users').subscribe(resp => {
+            this.medico = resp;
+
+            let turno: Turno = {
+                profesional: this.medico,
+                user: this.user,
+                hora: time,
+                dia: date,
+                especialidad: especialidad,
+                estado: 'PENDIENTE'
+            }
+
+            this.dbService.setOne(turno, 'turnos');
+            Swal.fire({
+                title: 'Muy bien',
+                icon: 'info',
+                text: 'Su turno se cargó correctamente',
+                showConfirmButton: true
+            });
+        });
+        
     }
 
     cancelar() {
@@ -80,7 +119,7 @@ export class SacarTurnoComponent implements OnInit {
         this.dbService.getAll('users').subscribe(usuarios => {
             listadoAuxiliar = usuarios.filter(x => x.role == 'PROFESIONAL' && x.emailVerified);
             
-            listadoAuxiliar.forEach(item => {
+            listadoAuxiliar.forEach((item: User) => {
                 const found = item.especialidades.find(element => element === espec);
                 if(found != undefined)
                     this.listadoMedicos.push(item);
@@ -89,6 +128,5 @@ export class SacarTurnoComponent implements OnInit {
             Swal.close();
         });
     }
-
 
 }
