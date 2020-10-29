@@ -51,7 +51,7 @@ export class SacarTurnoComponent implements OnInit {
     crearFormulario() {
         this.turnoForm = this.fb.group({
             date: ['', [Validators.required, this.myValidator.invalidDate]],
-            time: ['09:00', [Validators.required, Validators.min(9), Validators.max(18), this.myValidator.invalidTimeFormat]],
+            time: ['09:00', [Validators.required, Validators.min(9), Validators.max(19), this.myValidator.invalidTimeFormat]],
             especialidad: ['CLINICO', [Validators.required]],
             medic: ['', [Validators.required]]
         });

@@ -1,1 +1,1 @@
-export type Estado = 'ACEPTADO' | 'RECHAZADO' | 'PENDIENTE' | 'FINALIZADO';
+export type Estado = 'ACEPTADO' | 'RECHAZADO' | 'PENDIENTE' | 'FINALIZADO' | 'CANCELADO';

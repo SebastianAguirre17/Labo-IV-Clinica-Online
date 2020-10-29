@@ -1,4 +1,4 @@
-<div class="row animated fadeIn fast" *ngIf="listado.length > 0">
+<div class="row animated fadeInRight fast" *ngIf="listado.length > 0">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
@@ -27,6 +27,7 @@
                                     <div class="label label-table label-danger" *ngIf="item.estado === 'RECHAZADO'"> {{ item.estado }} </div>
                                     <div class="label label-table label-info" *ngIf="item.estado === 'ACEPTADO'"> {{ item.estado }} </div>
                                     <div class="label label-table label-warning" *ngIf="item.estado === 'PENDIENTE'"> {{ item.estado }} </div>
+                                    <div class="label label-table label-danger" *ngIf="item.estado === 'CANCELADO'"> {{ item.estado }} </div>
                                 </td>
                                 <td>
                                     <i  class="fa fa-close text-danger fa-2x mr-3 iconos" 
