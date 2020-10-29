@@ -94,13 +94,13 @@ export class SacarTurnoComponent implements OnInit {
                 text: 'Su turno se cargó correctamente',
                 showConfirmButton: true
             });
+            this.cancelar();
         });
         
     }
 
     cancelar() {
         this.turnoForm.reset();
-
         this.crearFormulario();
     }
 

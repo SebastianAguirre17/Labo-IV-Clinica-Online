@@ -33,12 +33,10 @@ export class UsuariosComponent implements OnInit {
     activar(user: User) {
         user.emailVerified = true;
         this.dbService.updateOne(user, 'users');
-
     }
 
     desactivar(user: User) {
         user.emailVerified = false;
         this.dbService.updateOne(user, 'users');
-
     }
 }

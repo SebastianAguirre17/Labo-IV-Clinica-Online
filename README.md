@@ -52,6 +52,14 @@ En esta aplicación se evalúan todos los mecanismos y conocimientos adquiridos 
 
 ### Primer Sprint - 22/08
 
+> La primer entrega, contó con la estructura básica del proyecto. Se crearon las páginas principales para el Login y el Registro.
+
+> Se creó el repositorio correspondiente y deployado en Heroku.
+
+> Para darle un plus a la entrega, se utlizó una directiva personalizada para el manejo de imágenes.
+
+**Tareas principales realizadas**
+
 * Registro y Login con Firebase
 
 * Verificación de email para usuarios "Pacientes"
@@ -62,30 +70,38 @@ En esta aplicación se evalúan todos los mecanismos y conocimientos adquiridos 
 
 * Proyecto subido a Heroku
 
-* Pantallas iniciales para cada perfil (En proceso)
-
 ----
 
 ### Segundo Sprint - 29/08
 
-* Captcha de Google
+> La segunda entrega requirió más trabajo. Se realizó un rediseño completo a lo planteado en la primer fecha.
 
-* Readme
+> Se corrigieron los issues reportados, como agregar metadata a las imágenes subidas al storage de Firebase.
 
-* Creación de nuevos usarios Admin
+> Se trabajó en la lógicaca de cada componente, para darle funcionalidades distintas a cada perfil de usuario y que puedan cumplir con los requrimientos de la aplicación.
 
-* Solicitud de turnos por parte de pacientes
+> Para aportar valor extra, se utilizaron diferentes animaciones para la transición entre pantallas y componentes, además de incluir validacione personalizadas para los formularios.
 
-* Listado de turnos pendientes
+**Tareas principales realizadas**
 
-* Manejo de turnos por parte de profesionales
+* Se incorporó Captcha de Google para el registro de usuarios
 
-* Atención de pacientes
+* Confección del archivo Readme.md
 
-* Gestión de usuarios
+* Funcionalidad de usuarios Admmin para creación de nuevos administradores y activación de profesionales.
+
+* Listado de turnos de cada Paciente con su estado actual.
+
+* Alta de turnos, siguiendo la restricciones solicitadas.
+
+* Funcionalidad para que los profesionales agreguen nuevas especialidades.
+
+* Atención de pacientes.
 
 ![principal](https://firebasestorage.googleapis.com/v0/b/clinica-online-3b015.appspot.com/o/readme%2Fusers.gif?alt=media&token=18164e1d-c3d8-4790-96c4-329afe442917)
 
 ----
 
 ![principal](https://firebasestorage.googleapis.com/v0/b/clinica-online-3b015.appspot.com/o/readme%2Fturnos.gif?alt=media&token=59d0e518-eeba-4b21-9bcb-c1e10fda16db)
+
+![principal](https://firebasestorage.googleapis.com/v0/b/clinica-online-3b015.appspot.com/o/readme%2Fprof-turno.gif?alt=media&token=622d40eb-8a35-425a-9d06-17768cf03e0c)

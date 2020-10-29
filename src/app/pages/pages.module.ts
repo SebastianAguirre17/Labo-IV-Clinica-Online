@@ -15,6 +15,7 @@ import { AgregarUsuarioComponent } from './agregar-usuario/agregar-usuario.compo
 import { ReactiveFormsModule } from '@angular/forms';
 import { AtenderPacienteComponent } from './atender-paciente/atender-paciente.component';
 import { UsuariosAdminComponent } from './usuarios-admin/usuarios-admin.component';
+import { TurnosProfComponent } from './turnos-prof/turnos-prof.component';
 
 @NgModule({
     declarations: [
@@ -27,7 +28,8 @@ import { UsuariosAdminComponent } from './usuarios-admin/usuarios-admin.componen
         UsuariosComponent,
         AgregarUsuarioComponent,
         AtenderPacienteComponent,
-        UsuariosAdminComponent
+        UsuariosAdminComponent,
+        TurnosProfComponent
     ],
     imports: [
         CommonModule,

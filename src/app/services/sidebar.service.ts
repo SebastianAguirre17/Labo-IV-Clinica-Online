@@ -23,10 +23,10 @@ export class SidebarService {
             titulo: 'Profesionales',
             icono: 'mdi mdi-gauge',
             submenu: [
-                { titulo: 'Definir horarios', url: 'atender-pacientes' },
-                { titulo: 'Ver turnos pendientes', url: 'atender-pacientes' },
-                { titulo: 'Cancelar turno', url: 'atender-pacientes' },
-                { titulo: 'Atender paciente', url: 'atender-pacientes' }
+                // { titulo: 'Definir horarios', url: 'atender-pacientes' },
+                { titulo: 'Turnos', url: 'turnos-prof' }
+                // { titulo: 'Cancelar turno', url: 'atender-pacientes' },
+                // { titulo: 'Atender paciente', url: 'atender-pacientes' }
             ]
         }
     ];
