@@ -16,6 +16,7 @@ import { AtenderPacienteComponent } from './atender-paciente/atender-paciente.co
 import { ProfesionalGuard } from '../guards/profesional.guard';
 import { UsuariosAdminComponent } from './usuarios-admin/usuarios-admin.component';
 import { TurnosProfComponent } from './turnos-prof/turnos-prof.component';
+import { CancelarProfComponent } from './cancelar-prof/cancelar-prof.component';
 
 const routes: Routes = [
 
@@ -30,6 +31,7 @@ const routes: Routes = [
             { path: 'usuarios-admin', component: UsuariosAdminComponent, data: { titulo: 'Administradores'}, canActivate: [AdminGuard] },
             { path: 'sacar-turno', component: SacarTurnoComponent, data: { titulo: 'Sacar turno'}, canActivate: [PacienteGuard] },
             { path: 'cancelar-turno', component: CancelarTurnoComponent, data: { titulo: 'Cancelar turno'}, canActivate: [PacienteGuard] },
+            { path: 'cancelar-prof', component: CancelarProfComponent, data: { titulo: 'Cancelar turno'}, canActivate: [ProfesionalGuard] },
             { path: 'atender-pacientes', component: AtenderPacienteComponent, data: { titulo: 'Atender paciente'}, canActivate: [ProfesionalGuard] },
             { path: 'turnos', component: TurnosComponent, data: { titulo: 'Turnos'}, canActivate: [PacienteGuard] },
             { path: 'turnos-prof', component: TurnosProfComponent, data: { titulo: 'Turnos'}, canActivate: [ProfesionalGuard] }

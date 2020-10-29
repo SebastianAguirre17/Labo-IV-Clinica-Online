@@ -24,8 +24,8 @@ export class SidebarService {
             icono: 'mdi mdi-gauge',
             submenu: [
                 // { titulo: 'Definir horarios', url: 'atender-pacientes' },
-                { titulo: 'Turnos', url: 'turnos-prof' }
-                // { titulo: 'Cancelar turno', url: 'atender-pacientes' },
+                { titulo: 'Turnos', url: 'turnos-prof' },
+                { titulo: 'Cancelar turno', url: 'cancelar-prof' }
                 // { titulo: 'Atender paciente', url: 'atender-pacientes' }
             ]
         }

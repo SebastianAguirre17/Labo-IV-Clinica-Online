@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AtenderPacienteComponent } from './atender-paciente/atender-paciente.component';
 import { UsuariosAdminComponent } from './usuarios-admin/usuarios-admin.component';
 import { TurnosProfComponent } from './turnos-prof/turnos-prof.component';
+import { CancelarProfComponent } from './cancelar-prof/cancelar-prof.component';
 
 @NgModule({
     declarations: [
@@ -29,7 +30,8 @@ import { TurnosProfComponent } from './turnos-prof/turnos-prof.component';
         AgregarUsuarioComponent,
         AtenderPacienteComponent,
         UsuariosAdminComponent,
-        TurnosProfComponent
+        TurnosProfComponent,
+        CancelarProfComponent
     ],
     imports: [
         CommonModule,
@@ -45,9 +47,11 @@ import { TurnosProfComponent } from './turnos-prof/turnos-prof.component';
         CancelarTurnoComponent,
         ReseniaComponent,
         UsuariosComponent,
-        AtenderPacienteComponent,
         AgregarUsuarioComponent,
-        UsuariosAdminComponent
+        AtenderPacienteComponent,
+        UsuariosAdminComponent,
+        TurnosProfComponent,
+        CancelarProfComponent
     ]
 })
 export class PagesModule { }

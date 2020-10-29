@@ -44,7 +44,7 @@ export class TurnosProfComponent implements OnInit {
         this.dbService.updateOne(turno, 'turnos');
     }
 
-    cancelarTurno(turno: Turno) {
+    rechazarTurno(turno: Turno) {
         turno.estado = 'RECHAZADO';
         this.dbService.updateOne(turno, 'turnos');
     }
