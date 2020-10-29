@@ -98,10 +98,18 @@ En esta aplicación se evalúan todos los mecanismos y conocimientos adquiridos 
 
 * Atención de pacientes.
 
+----
+**Gestión de usuarios**
 ![principal](https://firebasestorage.googleapis.com/v0/b/clinica-online-3b015.appspot.com/o/readme%2Fusers.gif?alt=media&token=18164e1d-c3d8-4790-96c4-329afe442917)
 
 ----
-
+**Sacar turnos**
 ![principal](https://firebasestorage.googleapis.com/v0/b/clinica-online-3b015.appspot.com/o/readme%2Fturnos.gif?alt=media&token=59d0e518-eeba-4b21-9bcb-c1e10fda16db)
 
+----
+**Aceptar o rechazar turnos**
 ![principal](https://firebasestorage.googleapis.com/v0/b/clinica-online-3b015.appspot.com/o/readme%2Fprof-turno.gif?alt=media&token=622d40eb-8a35-425a-9d06-17768cf03e0c)
+
+----
+**Cacelar turnos**
+![principal](https://firebasestorage.googleapis.com/v0/b/clinica-online-3b015.appspot.com/o/readme%2Fcancelar.gif?alt=media&token=d3dcfd7b-f484-4ae3-85b7-78124dda0c0e)

@@ -36,7 +36,7 @@
             </form>
         </div>
     </div>
-
+    <!-- 
     <div class="login-box card border animate__animated animate__backInRight mt-2">
         <div class="card-body">
             <div class="row">
@@ -59,6 +59,21 @@
                         (click)="setProfesional()">Profesional</button>
                 </div>
             </div>
+        </div>
+    </div> -->
+
+    <!-- Default dropup button -->
+    <div class="btn-group special">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Iniciar como ...
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" type="button" (click)="setPaciente()">Paciente</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" type="button" (click)="setProfesional()">Profesional</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" type="button" (click)="setAdmin()">Admin</a>
         </div>
     </div>
 </section>
