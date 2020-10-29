@@ -19,13 +19,6 @@ export class AuthGuard implements CanActivate {
             map((user) => user && true),
             tap((user) => {
                 if (!user) {
-                    Swal.fire({
-                        text: 'Debe ser paciente para acceder a la ruta especificada.',
-                        allowOutsideClick: false,
-                        showCloseButton: true,
-                        icon: 'error',
-                        title: 'Acceso denegado'
-                    });
                     this.router.navigateByUrl('login');
                 }
             })

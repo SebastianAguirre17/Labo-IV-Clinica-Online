@@ -24,7 +24,8 @@ import { LoginComponent } from './login/login.component';
     ],
     exports: [
         LoginComponent,
-        RegisterComponent
+        RegisterComponent,
+        VerificationComponent
     ]
 })
 export class AuthModule { }

@@ -88,13 +88,13 @@ export class SacarTurnoComponent implements OnInit {
             }
 
             this.dbService.setOne(turno, 'turnos');
+            this.cancelar();
             Swal.fire({
                 title: 'Muy bien',
                 icon: 'info',
                 text: 'Su turno se cargó correctamente',
                 showConfirmButton: true
             });
-            this.cancelar();
         });
         
     }
