@@ -10,31 +10,42 @@ import Swal from 'sweetalert2';
     styleUrls: ['./turnos.component.css']
 })
 export class TurnosComponent implements OnInit {
+    listadoEspecialidades: any[] = [];
+    listadoProfesionales: User[] = [];
+    listadoDias: string[] = [];
 
-    listado: any[] = [];
-    isLoading = false;
     user: User;
+    
+    especialidadSeleccionada: string;
+    profesionalSeleccionado: User;
+    diaSeleccionado: any;
 
     constructor(private dbService: DataService,
                 private auth: AuthService) {
     }
 
     ngOnInit() {
-        this.auth.user$.subscribe(userObs => {
-            this.dbService.getOne(userObs.uid, 'users').subscribe((user: User) => {
-                this.user = user;
-                this.getTurnos();
-            });
+        this.getEspecialidades();
+        this.getProfesionales();
+    }
+
+    getProfesionales() {
+        this.dbService.getAll('users').subscribe(users => {
+            this.listadoProfesionales = users.filter(x => x.role == 'PROFESIONAL' && x.emailVerified);
+            console.log(this.listadoProfesionales);
         });
     }
 
-    getTurnos() {
-        this.isLoading = true;
-
-        this.dbService.getAll('turnos').subscribe(turnos => {
-            this.listado = turnos.filter(x => x.user.uid == this.user.uid);
-            this.isLoading = false;
+    getEspecialidades() {
+        this.dbService.getAll('especialidades').subscribe(especialidades => {
+            this.listadoEspecialidades = especialidades;
+            console.log(this.listadoEspecialidades);
         });
     }
 
+
+
+    getFechas() {
+
+    }
 }

@@ -39,4 +39,8 @@ export class UsuariosComponent implements OnInit {
         user.emailVerified = false;
         this.dbService.updateOne(user, 'users');
     }
+
+    agregarEspecialidad(user: User) {
+        
+    }
 }

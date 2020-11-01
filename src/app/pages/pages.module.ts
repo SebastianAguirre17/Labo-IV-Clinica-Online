@@ -17,6 +17,7 @@ import { AtenderPacienteComponent } from './atender-paciente/atender-paciente.co
 import { UsuariosAdminComponent } from './usuarios-admin/usuarios-admin.component';
 import { TurnosProfComponent } from './turnos-prof/turnos-prof.component';
 import { CancelarProfComponent } from './cancelar-prof/cancelar-prof.component';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
     declarations: [
@@ -37,7 +38,8 @@ import { CancelarProfComponent } from './cancelar-prof/cancelar-prof.component';
         CommonModule,
         SharedModule,
         RouterModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        ComponentsModule
     ],
     exports: [
         DashboardComponent,

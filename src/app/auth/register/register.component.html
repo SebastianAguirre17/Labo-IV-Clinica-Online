@@ -1,8 +1,8 @@
 <section id="wrapper" class="login-register"
     style="background-image:url(../assets/images/background/login-register.jpg); background-size:cover;">
 
-    <!-- animate__animated animate__backInLeft -->
-    <div class="login-box card border " *ngIf="!seleccion">
+    
+    <div class="login-box card border animate__animated animate__backInLeft" *ngIf="!seleccion">
         <div class="card-body">
             <form class="form-horizontal form-material" id="loginform" [formGroup]="registerForm"
                 (ngSubmit)="onRegister()">
