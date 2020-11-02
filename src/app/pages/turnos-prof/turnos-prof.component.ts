@@ -33,7 +33,6 @@ export class TurnosProfComponent implements OnInit {
         this.isLoading = true;
 
         this.dbService.getAll('turnos').subscribe(turnos => {
-            
             this.listado = turnos.filter(x => x.profesional.uid === this.user.uid);
             this.isLoading = false;
         });
@@ -48,4 +47,10 @@ export class TurnosProfComponent implements OnInit {
         turno.estado = 'RECHAZADO';
         this.dbService.updateOne(turno, 'turnos');
     }
+
+    cancelarTurno(turno: Turno) {
+        turno.estado = 'CANCELADO';
+        this.dbService.updateOne(turno, 'turnos');
+    }
+
 }

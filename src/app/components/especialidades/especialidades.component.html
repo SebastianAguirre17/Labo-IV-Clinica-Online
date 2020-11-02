@@ -1,10 +1,11 @@
 <div class="col-12">
-    <div class="card">
+    <div class="card fadeIn fast">
         <div class="card-body">
             <h4 class="card-title">Especialidades</h4>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item" *ngFor="let item of listadoEspecialidades"> {{ item.especialidad }} </li>
-               
+                <li class="list-group-item" 
+                    *ngFor="let item of listadoEspecialidades"
+                    (click)="seleccionarEspecialidad(item.especialidad)"> {{ item.especialidad }} </li>
               </ul>
         </div>
     </div>

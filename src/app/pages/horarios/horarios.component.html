@@ -1,0 +1,17 @@
+<div class="row animated fadeIn fast">
+    <div class="col-lg-6">
+        <div class="card text-center">
+
+            <div class="card-body">
+
+
+                <div>
+
+                    <div class="label label-table label-info" 
+                         *ngFor="let boton of botones"
+                         [ngClass]="boton.estado">  {{ boton.hora }} </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

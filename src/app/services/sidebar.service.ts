@@ -10,10 +10,8 @@ export class SidebarService {
             titulo: 'Pacientes',
             icono: 'mdi mdi-gauge',
             submenu: [
-                { titulo: 'Ver turnos', url: 'turnos' },
-                { titulo: 'Sacar turno', url: 'sacar-turno' },
-                { titulo: 'Cancelar turno', url: 'cancelar-turno' },
-                { titulo: 'Dejar reseña', url: 'resenia' }
+                { titulo: 'Ver turnos', url: 'mis-turnos' },
+                { titulo: 'Sacar turno', url: 'turnos' },
             ]
         }
     ];
@@ -23,9 +21,9 @@ export class SidebarService {
             titulo: 'Profesionales',
             icono: 'mdi mdi-gauge',
             submenu: [
-                // { titulo: 'Definir horarios', url: 'atender-pacientes' },
-                { titulo: 'Turnos', url: 'turnos-prof' },
-                { titulo: 'Cancelar turno', url: 'cancelar-prof' }
+                { titulo: 'Gestionar Horarios', url: 'horarios' },
+                { titulo: 'Turnos', url: 'turnos-prof' }
+                //{ titulo: 'Cancelar turno', url: 'cancelar-prof' }
                 // { titulo: 'Atender paciente', url: 'atender-pacientes' }
             ]
         }

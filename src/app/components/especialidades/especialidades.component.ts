@@ -15,8 +15,8 @@ export class EspecialidadesComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    seleccionarEspecialidad(especialid: string) {
-        this.especialidadSeleccionada.emit(especialid);
+    seleccionarEspecialidad(especialidad: string) {
+        this.especialidadSeleccionada.emit(especialidad);
     }
 
 }
