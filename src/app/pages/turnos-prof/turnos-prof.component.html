@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Listado de Turnos</h4>
-                
+
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
@@ -23,37 +23,30 @@
                                 <td> {{ item.dia }} </td>
                                 <td><span class="text-muted"><i class="fa fa-clock-o"></i> {{ item.hora }} </span> </td>
                                 <td>
-                                    <div class="label label-table label-success" *ngIf="item.estado === 'FINALIZADO'"> {{ item.estado }} </div>
-                                    <div class="label label-table label-danger" *ngIf="item.estado === 'RECHAZADO'"> {{ item.estado }} </div>
-                                    <div class="label label-table label-primary" *ngIf="item.estado === 'ACEPTADO'"> {{ item.estado }} </div>
-                                    <div class="label label-table label-warning" *ngIf="item.estado === 'PENDIENTE'"> {{ item.estado }} </div>
-                                    <div class="label label-table label-danger" *ngIf="item.estado === 'CANCELADO'"> {{ item.estado }} </div>
+                                    <div class="label label-table label-success" *ngIf="item.estado === 'FINALIZADO'">
+                                        {{ item.estado }} </div>
+                                    <div class="label label-table label-danger" *ngIf="item.estado === 'RECHAZADO'">
+                                        {{ item.estado }} </div>
+                                    <div class="label label-table label-primary" *ngIf="item.estado === 'ACEPTADO'">
+                                        {{ item.estado }} </div>
+                                    <div class="label label-table label-warning" *ngIf="item.estado === 'PENDIENTE'">
+                                        {{ item.estado }} </div>
+                                    <div class="label label-table label-danger" *ngIf="item.estado === 'CANCELADO'">
+                                        {{ item.estado }} </div>
                                 </td>
                                 <td>
-                                    <i  class="fa fa-close text-danger fa-2x mr-3 iconos" 
-                                        (click)="rechazarTurno(item)"
-                                        data-toggle="tooltip" 
-                                        data-placement="top" 
-                                        title="Rechazar Turno"
-                                        *ngIf="item.estado == 'PENDIENTE'"></i>
-                                    <i  class="fa fa-check text-success fa-2x iconos" 
-                                        (click)="aceptarTurno(item)" 
-                                        data-toggle="tooltip" 
-                                        data-placement="top" 
-                                        title="Aceptar Turno"
-                                        *ngIf="item.estado == 'PENDIENTE'"></i>
-                                    <i  class="fa fa-close text-danger iconos mr-5" 
-                                        (click)="cancelarTurno(item)" 
-                                        data-toggle="tooltip" 
-                                        data-placement="top" 
-                                        title="Aceptar Turno"
-                                        *ngIf="item.estado == 'ACEPTADO'"> Cancelar</i>
-                                    <i  class="fa fa-check text-success iconos" 
-                                        (click)="aceptarTurno(item)" 
-                                        data-toggle="tooltip" 
-                                        data-placement="top" 
-                                        title="Aceptar Turno"
+                                    <i class="fa fa-check text-success iconos mr-5" (click)="aceptarTurno(item)"
+                                        data-toggle="tooltip" data-placement="top" title="Aceptar Turno"
+                                        *ngIf="item.estado == 'PENDIENTE'"> Aceptar</i>
+                                    <i class="fa fa-close text-danger iconos" (click)="rechazarTurno(item)"
+                                        data-toggle="tooltip" data-placement="top" title="Rechazar Turno"
+                                        *ngIf="item.estado == 'PENDIENTE'"> Rechazar</i>
+                                    <i class="fa fa-check text-success iconos mr-5" (click)="aceptarTurno(item)"
+                                        data-toggle="tooltip" data-placement="top" title="Aceptar Turno"
                                         *ngIf="item.estado == 'ACEPTADO'"> Atender</i>
+                                    <i class="fa fa-close text-danger iconos" (click)="cancelarTurno(item)"
+                                        data-toggle="tooltip" data-placement="top" title="Aceptar Turno"
+                                        *ngIf="item.estado == 'ACEPTADO'"> Cancelar</i>
                                 </td>
                             </tr>
                         </tbody>

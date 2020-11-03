@@ -18,7 +18,7 @@ export class AgregarUsuarioComponent implements OnInit {
     });
 
     constructor(private fb: FormBuilder,
-        private auth: AuthService) { }
+                private auth: AuthService) { }
 
     ngOnInit(): void {
 

@@ -34,7 +34,7 @@ section {
 	width: 60px;
 	height: 60px;
 	border-bottom: 3px solid white;
-	background-color: #311B92;
+	background-color: #745af2;
 	border-radius: 10px;
 	size: 50px;
 	font-size: 35px;
@@ -52,12 +52,12 @@ section {
 	width: 60px;
 	height: 60px;
 	border: 3px solid white;
-	border-color: #311B92;
+	border-color: #745af2;
 	border-radius: 10px;
 	size: 50px;
 	font-size: 35px;
 	line-height: 60px;
-	color: #311B92;
+	color: #745af2;
 	display: inline-block;
 	margin-left: 15px;
 	-webkit-transition: opacity .8s, transform .5s;
@@ -175,7 +175,7 @@ input[name="answer"] {
 }
 
 .back {
-    background-color: #311B92;
+    background-color: #745af2;
     color: white;
 }
 
@@ -185,7 +185,7 @@ input[name="answer"] {
 }
 
 .btn-outline-dark:hover {
-    background-color: #311B92 !important;
+    background-color: #745af2 !important;
 }
 
 .letter-spacing {
@@ -206,7 +206,7 @@ input[name="answer"] {
 }
 
 .noPresionado {
-	background-color: #311B92;
+	background-color: #745af2;
 	cursor: pointer;
 }
 

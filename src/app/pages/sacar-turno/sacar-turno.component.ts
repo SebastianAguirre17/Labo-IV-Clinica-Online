@@ -1,5 +1,7 @@
+import { TurnoPendiente } from 'src/app/shared/models/turno-pendiente.interface';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { element } from 'protractor';
 import { Observable } from 'rxjs/internal/Observable';
 import { AuthService } from 'src/app/services/auth.service';
 import { DataService } from 'src/app/services/data.service';
@@ -14,19 +16,19 @@ import Swal from 'sweetalert2';
     styleUrls: ['./sacar-turno.component.css']
 })
 export class SacarTurnoComponent implements OnInit {
-    
+
     listadoEspecialidades: any[] = [];
     listadoProfesionales: User[] = [];
-    listadoDias: string[] = [];
-
+    listadoTurnosDisponibles: TurnoPendiente[] = [];
+    listadoDeFechas: string[] = [];
     user: User;
-    
+
     especialidadSeleccionada: string;
     profesionalSeleccionado: User;
     diaSeleccionado: any;
 
     constructor(private dbService: DataService,
-                private auth: AuthService) {
+        private auth: AuthService) {
     }
 
     ngOnInit() {
@@ -39,10 +41,10 @@ export class SacarTurnoComponent implements OnInit {
 
         this.dbService.getAll('users').subscribe(usuarios => {
             listadoAuxiliar = usuarios.filter(x => x.role == 'PROFESIONAL' && x.emailVerified);
-            
+
             listadoAuxiliar.forEach((item: User) => {
                 const found = item.especialidades.find(element => element === especialidad);
-                if(found != undefined)
+                if (found != undefined)
                     this.listadoProfesionales.push(item);
             });
         });
@@ -54,13 +56,34 @@ export class SacarTurnoComponent implements OnInit {
         });
     }
 
+    getFechas() {
+        this.dbService.getAll('turnos-pendientes').subscribe(turnos => {
+            let auxTurnosPendientes = turnos.filter(turno => turno.profesional.uid === this.profesionalSeleccionado.uid &&
+                                                             turno.especialidad === this.especialidadSeleccionada
+            );;
+            let auxFechas = [];
+            auxTurnosPendientes.forEach(item => {
+                auxFechas.push(item.dia);
+            });
+
+            this.listadoDeFechas = [...new Set(auxFechas)];
+
+        });
+    }
+
     getEspecialidadFromComponent(especialidad: string) {
         this.especialidadSeleccionada = especialidad;
         this.getProfesionales(this.especialidadSeleccionada);
     }
 
-    getFechas() {
-
+    getProfesionalFromComponent(profesional: User) {
+        this.profesionalSeleccionado = profesional;
+        this.getFechas();
     }
+
+    getFechaFromComponent(fecha: string) {
+        this.diaSeleccionado = fecha;
+    }
+
 
 }
