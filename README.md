@@ -100,11 +100,11 @@ En esta aplicación se evalúan todos los mecanismos y conocimientos adquiridos 
 
 ----
 **Gestión de usuarios**
-![principal](https://firebasestorage.googleapis.com/v0/b/clinica-online-3b015.appspot.com/o/readme%2Fusers.gif?alt=media&token=18164e1d-c3d8-4790-96c4-329afe442917)
+![principal](https://firebasestorage.googleapis.com/v0/b/clinica-online-3b015.appspot.com/o/readme%2Fadmin-prof.gif?alt=media&token=7a13a63c-1618-478f-9878-086cf59b523c)
 
 ----
 **Sacar turnos**
-![principal](https://firebasestorage.googleapis.com/v0/b/clinica-online-3b015.appspot.com/o/readme%2Fturnos.gif?alt=media&token=59d0e518-eeba-4b21-9bcb-c1e10fda16db)
+![principal](https://firebasestorage.googleapis.com/v0/b/clinica-online-3b015.appspot.com/o/readme%2Fsacar-turno.gif?alt=media&token=bc3ca593-b4fa-45e4-af2b-e841c32a3c69)
 
 ----
 **Aceptar o rechazar turnos**
@@ -113,3 +113,21 @@ En esta aplicación se evalúan todos los mecanismos y conocimientos adquiridos 
 ----
 **Cacelar turnos**
 ![principal](https://firebasestorage.googleapis.com/v0/b/clinica-online-3b015.appspot.com/o/readme%2Fcancelar.gif?alt=media&token=d3dcfd7b-f484-4ae3-85b7-78124dda0c0e)
+
+----
+
+### Tercer Sprint - 29/08
+
+> En la tercer entrega,  se corrigen issues reportados.
+
+> Se cambia modalidad de sacar turnos, haciéndolo de forma dinámica en la menor cantidad de clicks posibles.
+
+**Tareas principales realizadas**
+
+* Se agregaron nuevas animaciones
+
+* Actualización del archivo Readme.md
+
+* Función de agregar nuevas campos al paciente, como información de historia clínica.
+
+* Generación de documentación en Pdf y Exel.
