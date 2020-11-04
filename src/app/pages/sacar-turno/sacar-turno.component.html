@@ -1,8 +1,9 @@
 <div class="row animated fadeIn fast">
     <app-especialidades [listadoEspecialidades]="listadoEspecialidades"
-                        (especialidadSeleccionada)="getEspecialidadFromComponent($event)"></app-especialidades>
-    <app-profesionales  [listadoProfesionales]="listadoProfesionales"
-                        (profesionalaSeleccionado)="getProfesionalFromComponent($event)"></app-profesionales>
-    <app-fechas         [listadoDeFechas]="listadoDeFechas"
-                        (fechaSeleccionada)="getFechaFromComponent($event)"></app-fechas>
+        (especialidadSeleccionada)="getEspecialidadFromComponent($event)"></app-especialidades>
+    <app-profesionales [listadoProfesionales]="listadoProfesionales" [especialidadSeleccionada]="especialidadSeleccionada"
+        (profesionalaSeleccionado)="getProfesionalFromComponent($event)"></app-profesionales>
+    <app-fechas [listadoDeFechas]="listadoDeFechas" (fechaSeleccionada)="getFechaFromComponent($event)"></app-fechas>
+    <app-horas [listadoDeHoras]="listadoDeHoras" (horaSeleccionada)="getHoraFromComponent($event)"></app-horas>
+
 </div>

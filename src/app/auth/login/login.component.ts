@@ -82,14 +82,14 @@ export class LoginComponent implements OnInit {
 
     setProfesional() {
         this.loginForm.setValue({
-            email: 'raul@gmail.com',
+            email: 'carlos@gmail.com',
             password: '11111111'
         });
     }
 
     setPaciente() {
         this.loginForm.setValue({
-            email: 'sebaaguirre2012@outlook.com',
+            email: 'sebaaguirre2012@gmail.com',
             password: '11111111'
         });
     }

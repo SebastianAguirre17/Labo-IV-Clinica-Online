@@ -23,7 +23,6 @@ export class SidebarService {
             submenu: [
                 { titulo: 'Gestionar Horarios', url: 'horarios' },
                 { titulo: 'Turnos', url: 'turnos-prof' }
-                //{ titulo: 'Cancelar turno', url: 'cancelar-prof' }
                 // { titulo: 'Atender paciente', url: 'atender-pacientes' }
             ]
         }

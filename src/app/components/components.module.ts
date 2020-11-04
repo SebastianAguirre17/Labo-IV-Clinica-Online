@@ -3,14 +3,16 @@ import { CommonModule } from '@angular/common';
 import { EspecialidadesComponent } from './especialidades/especialidades.component';
 import { ProfesionalesComponent } from './profesionales/profesionales.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { FechasComponent } from './fechas/fechas.component'
+import { FechasComponent } from './fechas/fechas.component';
+import { HorasComponent } from './horas/horas.component'
 
 
 @NgModule({
     declarations: [
         EspecialidadesComponent,
         ProfesionalesComponent,
-        FechasComponent
+        FechasComponent,
+        HorasComponent
     ],
     imports: [
         CommonModule,
@@ -19,7 +21,8 @@ import { FechasComponent } from './fechas/fechas.component'
     exports: [
         EspecialidadesComponent,
         ProfesionalesComponent,
-        FechasComponent
+        FechasComponent,
+        HorasComponent
     ]
 })
 export class ComponentsModule { }

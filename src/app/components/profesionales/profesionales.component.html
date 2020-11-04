@@ -1,16 +1,13 @@
 <div class="col-12" *ngIf="listadoProfesionales.length > 0">
 	<div class="card fadeIn fast">
 		<div class="card-body">
-			<h4 class="card-title">Profesionales</h4>
-			<ul class="list-group list-group-flush">
-				<li
-					class="list-group-item"
+			<h4 class="card-title text-center">Profesionales</h4>
+			<div class="list-group">
+				<button type="button" class="list-group-item list-group-item-action"
 					*ngFor="let item of listadoProfesionales"
-					(click)="seleccionarProfesional(item)"
-				>
-					{{ item.name }}
-				</li>
-			</ul>
+					(click)="seleccionarProfesional(item)">{{ item.name }} ( {{ especialidadSeleccionada }} )</button>
+
+			</div>
 		</div>
 	</div>
 </div>

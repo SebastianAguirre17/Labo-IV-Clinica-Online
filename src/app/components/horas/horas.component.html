@@ -1,0 +1,12 @@
+<div class="col-12" *ngIf="listadoDeHoras.length > 0">
+	<div class="card fadeIn fast">
+		<div class="card-body">
+			<h4 class="card-title text-center">Horarios disponibles</h4>
+			<div class="list-group">
+				<button type="button" class="list-group-item list-group-item-action" *ngFor="let item of listadoDeHoras"
+					(click)="seleccionarHora(item)">{{ item }}</button>
+
+			</div>
+		</div>
+	</div>
+</div>

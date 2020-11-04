@@ -1,11 +1,11 @@
-<div class="row animated fadeInRight fast" *ngIf="listado.length > 0">
+<div class="row animated fadeInRight fast doblete" *ngIf="listado.length > 0">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Listado de Turnos</h4>
+                <h4 class="card-title">Turnos Asignados</h4>
 
-                <div class="table-responsive">
-                    <table class="table">
+                <div class="table-responsive" >
+                    <table class="table my-tbody">
                         <thead>
                             <tr>
                                 <th>Nombre</th>
@@ -57,7 +57,59 @@
     </div>
 </div>
 
-<div class="row animated fadeIn fast" *ngIf="isLoading">
+<div class="row animated fadeIn fast doblete" *ngIf="isLoading">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="alert alert-info text-center">
+                    <h4 class="alert-heading">Cargando</h4>
+                    <i class="fa fa-spin fa-refresh fa-2x"></i>
+                    <p></p>
+                    <p class="mb-0">Por favor espere</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row animated fadeInRight fast" *ngIf="listadoPendientes.length > 0">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Turnos Pendientes</h4>
+
+                <div class="table-responsive">
+                    <table class="table my-tbody">
+                        <thead>
+                            <tr>
+                                <th>Día</th>
+                                <th>Hora</th>
+                                <th>Especialidad</th>
+                                <th>Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody2">
+                            <tr *ngFor="let item of listadoPendientes">
+                                <td> {{ item.dia }} </td>
+                                <td><span class="text-muted"><i class="fa fa-clock-o"></i> {{ item.hora }} </span> </td>
+                                <td> {{ item.especialidad }} </td>
+                                <td>
+                                    <i class="fa fa-close text-danger iconos" (click)="cancelarTurnoPendiente(item)"
+                                        data-toggle="tooltip" data-placement="top" title="Cancelar Turno"
+                                    > Cancelar</i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row animated fadeIn fast" *ngIf="isLoading2">
     <div class="col-12">
         <div class="card">
             <div class="card-body">

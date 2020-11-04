@@ -43,7 +43,7 @@
                 </div>
                 <div class="col-md-8 col-lg-9 text-center">
                     <span class="label label-success" *ngIf="item.especialidades.length < 3"
-                        (click)="agregarEspecialidad(item)" data-toggle="modal" data-target="#exampleModal">Agregar
+                        (click)="seleccionarProfesional(item)" data-toggle="modal" data-target="#exampleModal">Agregar
                         Especialidad</span>
                 </div>
             </div>
@@ -61,19 +61,34 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <select class="form-control" formControlName="especialidad">
-                        <option value="CLINICO"> CLÍNICO </option>
-                        <option value="ODONTOLOGO"> ODONTÓLOGO </option>
-                        <option value="PEDIATRA"> PEDIATRA </option>
-                        <option value="OFTALMOLOGO"> OFTALMÓLOGO </option>
-                    </select>
+            <div class="card">
+                <div class="card-body">
+                    <form class="form-horizontal form-material" id="loginform" [formGroup]="especialidadForm"
+                    (ngSubmit)="agregarEspecialidad()">
+                    
+                        <p class="form-group">Seleccione la especialidad que desea agregar</p>
+                        <div class="form-group">
+                            <label [class.text-danger]="invalidEspecialidad">Especialidad</label>
+
+                            <select class="form-control" formControlName="especialidad">
+                                <option value="CLINICO"> CLÍNICO </option>
+                                <option value="ODONTOLOGO"> ODONTÓLOGO </option>
+                                <option value="PEDIATRA"> PEDIATRA </option>
+                                <option value="OFTALMOLOGO"> OFTALMÓLOGO </option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group text-center m-t-20">
+                            <div class="col-xs-12">
+                                <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light"
+                                    type="submit">Agregar
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>

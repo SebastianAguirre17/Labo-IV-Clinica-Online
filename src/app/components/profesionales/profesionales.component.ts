@@ -7,6 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 })
 export class ProfesionalesComponent implements OnInit {
     @Input() listadoProfesionales: any[];
+    @Input() especialidadSeleccionada: any;
     @Output() profesionalaSeleccionado: EventEmitter<string> = new EventEmitter();
 
     constructor() { }

@@ -1,4 +1,3 @@
-import { TurnoPendiente } from 'src/app/shared/models/turno-pendiente.interface';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
@@ -18,5 +17,9 @@ export class FechasComponent implements OnInit {
 
     seleccionarFecha(fecha: string) {
         this.fechaSeleccionada.emit(fecha);
+    }
+
+    transformFecha (fecha: string) {
+        return  `${fecha.substr(8, 2)}-${fecha.substr(5, 2)}-${fecha.substr(0, 4)}`;
     }
 }

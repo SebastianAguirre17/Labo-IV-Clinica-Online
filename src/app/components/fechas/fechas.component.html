@@ -1,16 +1,13 @@
 <div class="col-12" *ngIf="listadoDeFechas.length > 0">
 	<div class="card fadeIn fast">
 		<div class="card-body">
-			<h4 class="card-title">Fechas disponibles</h4>
-			<ul class="list-group list-group-flush">
-				<li
-					class="list-group-item"
+			<h4 class="card-title text-center">Fechas disponibles</h4>
+			<div class="list-group">
+				<button type="button" class="list-group-item list-group-item-action"
 					*ngFor="let item of listadoDeFechas"
-					(click)="seleccionarFecha(item)"
-				>
-					{{ item }}
-				</li>
-			</ul>
+					(click)="seleccionarFecha(item)">{{ transformFecha(item) }}</button>
+
+			</div>
 		</div>
 	</div>
 </div>

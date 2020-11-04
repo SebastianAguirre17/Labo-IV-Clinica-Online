@@ -1,3 +1,20 @@
 .iconos {
     cursor: pointer;
 }
+
+  
+  .my-tbody {
+    height: 200px;
+    overflow-y:scroll;
+    width:100%;
+    display: block;
+  }
+  
+  tbody {
+    width: 100%;
+  }
+  
+  td {
+      width: 14.2%;
+  }
+

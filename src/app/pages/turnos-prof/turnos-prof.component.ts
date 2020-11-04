@@ -1,3 +1,4 @@
+import { TurnoPendiente } from 'src/app/shared/models/turno-pendiente.interface';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { DataService } from 'src/app/services/data.service';
@@ -13,7 +14,9 @@ export class TurnosProfComponent implements OnInit {
 
     
     listado: any[] = [];
+    listadoPendientes: any[] = [];
     isLoading = false;
+    isLoading2 = false;
     user: User;
 
     constructor(private dbService: DataService,
@@ -25,6 +28,7 @@ export class TurnosProfComponent implements OnInit {
             this.dbService.getOne(userObs.uid, 'users').subscribe((user: User) => {
                 this.user = user;
                 this.getTurnos();
+                this.getTurnosPendientes();
             });
         });
     }
@@ -35,6 +39,15 @@ export class TurnosProfComponent implements OnInit {
         this.dbService.getAll('turnos').subscribe(turnos => {
             this.listado = turnos.filter(x => x.profesional.uid === this.user.uid);
             this.isLoading = false;
+        });
+    }
+
+    getTurnosPendientes() {
+        this.isLoading2 = true;
+
+        this.dbService.getAll('turnos-pendientes').subscribe((turnos: TurnoPendiente[]) => {
+            this.listadoPendientes = turnos.filter(x => x.profesional.uid === this.user.uid && x.estado === 'PENDIENTE');
+            this.isLoading2 = false;
         });
     }
 
@@ -51,6 +64,11 @@ export class TurnosProfComponent implements OnInit {
     cancelarTurno(turno: Turno) {
         turno.estado = 'CANCELADO';
         this.dbService.updateOne(turno, 'turnos');
+    }
+
+    cancelarTurnoPendiente(turno: TurnoPendiente) {
+        turno.estado = 'CANCELADO';
+        this.dbService.updateOne(turno, 'turnos-pendientes');
     }
 
 }
