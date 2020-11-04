@@ -5,6 +5,9 @@ import { DataService } from 'src/app/services/data.service';
 import { Turno } from 'src/app/shared/models/turno.interface';
 import { User } from 'src/app/shared/models/user.interface';
 
+import { jsPDF } from "jspdf";
+import * as XLSX from 'xlsx';
+
 @Component({
     selector: 'app-turnos-prof',
     templateUrl: './turnos-prof.component.html',
@@ -12,7 +15,7 @@ import { User } from 'src/app/shared/models/user.interface';
 })
 export class TurnosProfComponent implements OnInit {
 
-    
+
     listado: any[] = [];
     listadoPendientes: any[] = [];
     isLoading = false;
@@ -20,7 +23,7 @@ export class TurnosProfComponent implements OnInit {
     user: User;
 
     constructor(private dbService: DataService,
-                private auth: AuthService) {
+        private auth: AuthService) {
     }
 
     ngOnInit() {
@@ -71,4 +74,31 @@ export class TurnosProfComponent implements OnInit {
         this.dbService.updateOne(turno, 'turnos-pendientes');
     }
 
+    generarPdf(id: string) {
+        var doc = new jsPDF({
+            orientation: 'l',
+            unit: 'pt',
+            format: 'legal'
+        });
+
+        doc.html(document.getElementById(id), {
+            callback: function (doc) {
+                doc.save();
+            },
+            x: 5,
+            y: 5
+        });
+    }
+
+    generarExel(id: string) {
+        let element = document.getElementById(id);
+        const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+     
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+     
+        XLSX.writeFile(wb, 'Turnos.xlsx');
+    }
+
 }
+

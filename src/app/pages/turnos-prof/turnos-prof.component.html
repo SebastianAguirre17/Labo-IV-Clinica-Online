@@ -3,8 +3,8 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Turnos Asignados</h4>
-
-                <div class="table-responsive" >
+                <button class="btn btn-primary" (click)="generarPdf('table-turnos')">Descargar PDF</button>
+                <div class="table-responsive" id="table-turnos">
                     <table class="table my-tbody">
                         <thead>
                             <tr>
@@ -79,8 +79,8 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Turnos Pendientes</h4>
-
-                <div class="table-responsive">
+                <button class="btn btn-success" (click)="generarExel('table-turnos-pendientes')">Descargar PDF</button>
+                <div class="table-responsive" id="table-turnos-pendientes">
                     <table class="table my-tbody">
                         <thead>
                             <tr>

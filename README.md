@@ -114,6 +114,11 @@ En esta aplicación se evalúan todos los mecanismos y conocimientos adquiridos 
 **Cacelar turnos**
 ![principal](https://firebasestorage.googleapis.com/v0/b/clinica-online-3b015.appspot.com/o/readme%2Fcancelar.gif?alt=media&token=d3dcfd7b-f484-4ae3-85b7-78124dda0c0e)
 
+
+----
+**Descargar PDF**
+![Principal](https://firebasestorage.googleapis.com/v0/b/clinica-online-3b015.appspot.com/o/readme%2Fadmin-prof.gif?alt=media&token=7a13a63c-1618-478f-9878-086cf59b523c)
+
 ----
 
 ### Tercer Sprint - 29/08
