@@ -74,6 +74,16 @@ export class TurnosComponent implements OnInit {
                     control.markAsTouched();
             });
         }
+
+        this.dbService.setComentario(this.turnoSeleccionado, this.reseniaForm.get('text').value);
+        Swal.fire({
+            title: 'Muy bien!',
+            text: `El doctor${this.turnoSeleccionado.profesional.name} ha recibido su comentario`,
+            icon: 'info',
+            showConfirmButton: true
+
+        });
+
        
     }
 }

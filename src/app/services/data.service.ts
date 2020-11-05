@@ -80,6 +80,22 @@ export class DataService {
         })
     }
 
+    async setComentario(turno: Turno, comentario: string) {
+        const turnoRef: AngularFirestoreDocument<any> = this.afs.doc(`turnos/${turno.id}`);
+        const data: any = {
+            user: turno.user,
+            profesional: turno.profesional,
+            dia: turno.dia,
+            hora: turno.hora,
+            estado: turno.estado,
+            resenia: turno.resenia,
+            comentario: comentario
+        }
+        return turnoRef.set(data, {
+            merge: true
+        })
+    }
+
 
 
 }

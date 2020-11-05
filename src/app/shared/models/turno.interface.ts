@@ -11,4 +11,5 @@ export interface Turno {
     estado?: Estado;
     id?: string;
     resenia?: string;
+    comentario?: string;
 }
