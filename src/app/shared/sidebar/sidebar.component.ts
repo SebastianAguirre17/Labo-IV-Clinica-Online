@@ -1,6 +1,5 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { DataService } from './../../services/data.service';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/internal/Observable';
 import { AuthService } from 'src/app/services/auth.service';
 import { SidebarService } from 'src/app/services/sidebar.service';
 
@@ -12,22 +11,19 @@ import { SidebarService } from 'src/app/services/sidebar.service';
 })
 export class SidebarComponent implements OnInit {
 
-    public user$: Observable<any> = this.auth.user$;
-
     menuPacientes: any[];
     menuProfesionales: any[];
     menuAdmin: any[];
 
     constructor(private sidebar: SidebarService,
-                private auth: AuthService) {
+                private auth: AuthService,
+                private dbService: DataService) {
         this.menuPacientes = this.sidebar.menuPacientes;
         this.menuProfesionales = this.sidebar.menuProfesionales;
         this.menuAdmin = this.sidebar.menuAdmin;
-
     }
     
     ngOnInit(): void {
-        
     }
 
 }

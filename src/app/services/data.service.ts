@@ -1,3 +1,4 @@
+import { Turno } from './../shared/models/turno.interface';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
@@ -63,5 +64,22 @@ export class DataService {
         this.objetoDoc = this.afs.doc<any>(`${dataNombre}/${id}`);
         this.objetoDoc.delete();
     }
+
+    async setReseniaProfesional(turno: Turno, resenia: string) {
+        const turnoRef: AngularFirestoreDocument<any> = this.afs.doc(`turnos/${turno.id}`);
+        const data: any = {
+            user: turno.user,
+            profesional: turno.profesional,
+            dia: turno.dia,
+            hora: turno.hora,
+            estado: turno.estado,
+            resenia: resenia
+        }
+        return turnoRef.set(data, {
+            merge: true
+        })
+    }
+
+
 
 }

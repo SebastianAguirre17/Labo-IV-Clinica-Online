@@ -8,4 +8,5 @@ export interface TurnoPendiente {
     dia?: Date;
     hora?: Time;
     estado?: Estado;
+    id?: string;
 }

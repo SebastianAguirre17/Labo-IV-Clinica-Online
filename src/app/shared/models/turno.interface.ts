@@ -9,4 +9,6 @@ export interface Turno {
     dia?: Date;
     hora?: Time;
     estado?: Estado;
+    id?: string;
+    resenia?: string;
 }

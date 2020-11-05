@@ -7,6 +7,8 @@ import { User } from 'src/app/shared/models/user.interface';
 
 import { jsPDF } from "jspdf";
 import * as XLSX from 'xlsx';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-turnos-prof',
@@ -21,9 +23,15 @@ export class TurnosProfComponent implements OnInit {
     isLoading = false;
     isLoading2 = false;
     user: User;
+    turnoSeleccionado: Turno;
+
+    reseniaForm = this.fb.group({
+        text: ['', [Validators.required, Validators.minLength(2)]],
+    });
 
     constructor(private dbService: DataService,
-        private auth: AuthService) {
+                private auth: AuthService,
+                private fb: FormBuilder) {
     }
 
     ngOnInit() {
@@ -74,6 +82,43 @@ export class TurnosProfComponent implements OnInit {
         this.dbService.updateOne(turno, 'turnos-pendientes');
     }
 
+    atenderPaciente(turno: Turno) {
+        turno.estado = 'FINALIZADO';
+        this.dbService.updateOne(turno, 'turnos');
+    }
+
+    seleccionarTurno(turno: Turno) {
+        this.turnoSeleccionado = turno;
+        if(this.turnoSeleccionado.resenia) {
+            this.reseniaForm.setValue({
+                text: this.turnoSeleccionado.resenia
+            });
+        };
+    }
+    
+    get invalidText() {
+        return this.reseniaForm.get('text').invalid && this.reseniaForm.get('text').touched;
+    }
+
+    dejarResenia() {
+        if (this.reseniaForm.invalid) {
+            return Object.values(this.reseniaForm.controls).forEach(control => {
+                if (control instanceof FormGroup)
+                    Object.values(control.controls).forEach(control => control.markAsTouched());
+                else
+                    control.markAsTouched();
+            });
+        }
+        this.turnoSeleccionado.resenia = this.reseniaForm.get('text').value;
+        this.dbService.updateOne(this.turnoSeleccionado, 'turnos');
+
+        Swal.fire({
+            text: 'La resenia se guardó correctamente',
+            title: 'Muy bien',
+            showConfirmButton: true
+        });
+    }
+
     generarPdf(id: string) {
         var doc = new jsPDF({
             orientation: 'l',
@@ -99,6 +144,5 @@ export class TurnosProfComponent implements OnInit {
      
         XLSX.writeFile(wb, 'Turnos.xlsx');
     }
-
 }
 
