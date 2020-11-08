@@ -1,0 +1,27 @@
+<div class="card text-white bg-dark mb-3 cursor" style="max-width: 18rem;" (click)="seleccionarTurno()" *ngIf="profesionalSeleccionado && primerDia">
+    <div class="card-header">Primer turno disponible</div>
+    <div class="card-body">
+        <h6 class="card-title mb-5 text-white">Dr: {{ profesionalSeleccionado?.name }} </h6>
+        <p class="card-text"> Dia: {{ primerDia }} </p>
+        <p class="card-text"> Hora: {{ primerHora }} </p>
+    </div>
+</div>
+
+<div class="card text-white bg-danger mb-3" style="max-width: 18rem;" *ngIf="profesionalSeleccionado && !primerDia">
+    <div class="card-body">
+        <h3 class="text-white text-center"> No hay turnos disponibles</h3>
+    </div>
+</div>
+
+<div class="col-12" *ngIf="!profesionalSeleccionado">
+    <div class="card">
+        <div class="card-body">
+            <div class="alert alert-info text-center">
+                <h4 class="alert-heading">Cargando</h4>
+                <i class="fa fa-spin fa-refresh fa-2x"></i>
+                <p></p>
+                <p class="mb-0">Seleccione un profesional para continuar</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -20,7 +20,7 @@
                         <div class="input-group">
                             <div class="input-group-addon"><i class="ti-bag"></i></div>
                             <select class="form-control" formControlName="especialidad">
-                                <option value="item" *ngFor="let item of especialidades"> {{ item }} </option>
+                                <option [value]="item" *ngFor="let item of especialidades"> {{ item }} </option>
                                 
                             </select>
                         </div>

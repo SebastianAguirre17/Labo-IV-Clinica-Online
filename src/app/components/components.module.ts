@@ -4,7 +4,8 @@ import { EspecialidadesComponent } from './especialidades/especialidades.compone
 import { ProfesionalesComponent } from './profesionales/profesionales.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { FechasComponent } from './fechas/fechas.component';
-import { HorasComponent } from './horas/horas.component'
+import { HorasComponent } from './horas/horas.component';
+import { PrimerTurnoComponent } from './primer-turno/primer-turno.component'
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { HorasComponent } from './horas/horas.component'
         EspecialidadesComponent,
         ProfesionalesComponent,
         FechasComponent,
-        HorasComponent
+        HorasComponent,
+        PrimerTurnoComponent
     ],
     imports: [
         CommonModule,
@@ -22,6 +24,7 @@ import { HorasComponent } from './horas/horas.component'
         EspecialidadesComponent,
         ProfesionalesComponent,
         FechasComponent,
+        PrimerTurnoComponent,
         HorasComponent
     ]
 })

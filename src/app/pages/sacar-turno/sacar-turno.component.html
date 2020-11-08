@@ -7,3 +7,12 @@
     <app-horas [listadoDeHoras]="listadoDeHoras" (horaSeleccionada)="getHoraFromComponent($event)"></app-horas>
 
 </div>
+<div class="row animated fadeIn fast justify-content-center mt-5">
+    <app-primer-turno   [especialidadSeleccionada]="especialidadSeleccionada"
+                        [profesionalSeleccionado]="profesionalSeleccionado"
+                        [primerDia]="primerDia"
+                        [primerHora]="primerHora"
+                        (seleccionarPrimerTurno)="sacarPrimerTurno()">
+    </app-primer-turno>
+
+</div>
