@@ -43,12 +43,13 @@
                                         *ngIf="item.estado == 'PENDIENTE'"> Rechazar</i>
                                     <i class="fa fa-check text-success iconos mr-5" (click)="atenderPaciente(item)"
                                         data-toggle="tooltip" data-placement="top" title="Aceptar Turno"
-                                        *ngIf="item.estado == 'ACEPTADO'"> Atender</i>
+                                        *ngIf="item.estado == 'ACEPTADO'" data-toggle="modal"
+                                        data-target="#exampleModal3"> Atender</i>
                                     <i class="fa fa-close text-danger iconos" (click)="cancelarTurno(item)"
                                         data-toggle="tooltip" data-placement="top" title="Aceptar Turno"
                                         *ngIf="item.estado == 'ACEPTADO'"> Cancelar</i>
-                                    <i class="fa fa-edit text-info iconos mr-5" data-toggle="tooltip" data-placement="top"
-                                        title="Reseña" *ngIf="item.estado == 'FINALIZADO'"
+                                    <i class="fa fa-edit text-info iconos mr-5" data-toggle="tooltip"
+                                        data-placement="top" title="Reseña" *ngIf="item.estado == 'FINALIZADO'"
                                         (click)="seleccionarTurno(item)" data-toggle="modal"
                                         data-target="#exampleModal"> Reseña</i>
                                     <i class="fa text-primary iconos" data-toggle="tooltip" data-placement="top"
@@ -81,14 +82,12 @@
     </div>
 </div>
 
-
-
 <div class="row animated fadeInRight fast" *ngIf="listadoPendientes.length > 0">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Turnos Pendientes</h4>
-                <button class="btn btn-success" (click)="generarExel('table-turnos-pendientes')">Descargar PDF</button>
+                <button class="btn btn-success" (click)="generarExel('table-turnos-pendientes')">Descargar Exel</button>
                 <div class="table-responsive" id="table-turnos-pendientes">
                     <table class="table my-tbody">
                         <thead>
@@ -131,7 +130,6 @@
         </div>
     </div>
 </div>
-
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -186,7 +184,113 @@
                     <hr>
                     <p> {{ turnoSeleccionado?.user.name }} respondió: </p>
                     <small> {{ turnoSeleccionado?.comentario }} </small>
-                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel2">
+                    Historia Clínica</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <form [formGroup]="historiaForm" (ngSubmit)="guardarHistoria()">
+                        <div class="form-body">
+                            <h3 class="box-title">Atender Paciente</h3>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label [class.text-danger]="invalidAge">Edad</label>
+                                        <input type="number" class="form-control" formControlName="age">
+                                        <small *ngIf="invalidAge" class="text-danger">La edad es incorrecta</small>
+                                    </div>
+
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label [class.text-danger]="invalidTemp">Temperatura</label>
+                                        <input type="number" class="form-control" formControlName="temp">
+                                        <small *ngIf="invalidTemp" class="text-danger">La Temperatura es
+                                            incorrecta</small>
+
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label [class.text-danger]="invalidPresion">Presión arterial</label>
+                                        <input type="text" class="form-control" formControlName="presion">
+                                        <small *ngIf="invalidPresion" class="text-danger">La Presión es
+                                            incorrecta</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label [class.text-danger]="invalidPeso">Peso</label>
+                                        <input type="number" class="form-control" formControlName="peso">
+                                        <small *ngIf="invalidPeso" class="text-danger">El perso es incorrecto</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="box-title">Otros datos</h3>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Propiedad" formControlName="clave1">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Valor" formControlName="valor1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Propiedad" formControlName="clave2">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Valor" formControlName="valor2">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Propiedad" formControlName="clave3">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Valor" formControlName="valor3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-success mr-2"> <i class="fa fa-check"></i>
+                                Save</button>
+                            <button type="button" class="btn btn-inverse" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
