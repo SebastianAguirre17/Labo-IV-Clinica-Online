@@ -1,6 +1,6 @@
 <div class="row animated fadeInRight fast doblete" *ngIf="listado.length > 0">
     <div class="col-12">
-        <div class="card">
+        <div class="card" id="tabla-turnos">
             <div class="card-body">
                 <h4 class="card-title">Turnos Asignados</h4>
                 <button class="btn btn-primary" (click)="generarPdf('table-turnos')">Descargar PDF</button>
@@ -21,7 +21,7 @@
                                 <td> {{ item.user.name }} </td>
                                 <td> {{ item.especialidad }} </td>
                                 <td> {{ item.dia }} </td>
-                                <td><span class="text-muted"><i class="fa fa-clock-o"></i> {{ item.hora }} </span> </td>
+                                <td> {{ item.hora }} </td>
                                 <td>
                                     <div class="label label-table label-success" *ngIf="item.estado === 'FINALIZADO'">
                                         {{ item.estado }} </div>

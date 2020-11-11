@@ -149,17 +149,15 @@ export class TurnosProfComponent implements OnInit {
 
     generarPdf(id: string) {
         var doc = new jsPDF({
-            orientation: 'l',
-            unit: 'pt',
-            format: 'legal'
+            orientation: 'p',
+            format: [1200, 2600]
         });
 
-        doc.html(document.getElementById(id), {
+        doc.html(document.getElementById('tabla-turnos'), {
             callback: function (doc) {
+                doc.addFont('','','','WinAnsiEncoding')
                 doc.save();
-            },
-            x: 5,
-            y: 5
+            }
         });
     }
 
@@ -186,16 +184,16 @@ export class TurnosProfComponent implements OnInit {
         const { age, peso, temp, presion, clave1, clave2, clave3, valor1, valor2, valor3 } = this.historiaForm.value;
 
         const historia = {
-            age, 
-            peso, 
-            temp, 
+            age,
+            peso,
+            temp,
             presion
         };
-        if(clave1 && valor1)
+        if (clave1 && valor1)
             historia[clave1] = valor1;
-        if(clave2 && valor2)
+        if (clave2 && valor2)
             historia[clave2] = valor2;
-        if(clave3 && valor3)
+        if (clave3 && valor3)
             historia[clave3] = valor3;
 
         this.turnoSeleccionado.historia = historia;
