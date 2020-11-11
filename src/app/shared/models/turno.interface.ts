@@ -12,4 +12,5 @@ export interface Turno {
     id?: string;
     resenia?: string;
     comentario?: string;
+    historia?: any;
 }

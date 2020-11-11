@@ -174,7 +174,6 @@ export class TurnosProfComponent implements OnInit {
     }
 
     guardarHistoria() {
-
         if (this.historiaForm.invalid) {
             return Object.values(this.historiaForm.controls).forEach(control => {
                 if (control instanceof FormGroup)
@@ -184,7 +183,30 @@ export class TurnosProfComponent implements OnInit {
             });
         }
 
-        console.log(this.historiaForm.value);
+        const { age, peso, temp, presion, clave1, clave2, clave3, valor1, valor2, valor3 } = this.historiaForm.value;
+
+        const historia = {
+            age, 
+            peso, 
+            temp, 
+            presion
+        };
+        if(clave1 && valor1)
+            historia[clave1] = valor1;
+        if(clave2 && valor2)
+            historia[clave2] = valor2;
+        if(clave3 && valor3)
+            historia[clave3] = valor3;
+
+        this.turnoSeleccionado.historia = historia;
+        this.turnoSeleccionado.estado = 'FINALIZADO';
+        this.dbService.updateOne(this.turnoSeleccionado, 'turnos');
+
+        Swal.fire({
+            text: 'Los datos fueron cargados correctamente',
+            title: 'Muy bien!',
+            icon: 'info'
+        });
     }
 }
 
