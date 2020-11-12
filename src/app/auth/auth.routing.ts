@@ -6,8 +6,8 @@ import { RegisterComponent } from './register/register.component';
 import { VerificationComponent } from './verification/verification.component';
 
 const routes: Routes = [
-    { path: 'login', component: LoginComponent, data: { animation: 'Login' } },
-    { path: 'register', component: RegisterComponent, data: { animation: 'Register' } },
+    { path: 'login', component: LoginComponent, data: { animation: 'Profesionales' } },
+    { path: 'register', component: RegisterComponent, data: { animation: 'Admin' } },
     { path: 'verification', component: VerificationComponent },
 ];
 

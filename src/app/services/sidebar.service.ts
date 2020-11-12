@@ -35,7 +35,8 @@ export class SidebarService {
             submenu: [
                 { titulo: 'Ver Profesionales', url: 'usuarios' },
                 { titulo: 'Ver Administradores', url: 'usuarios-admin' },
-                { titulo: 'Agregar usuario', url: 'agregar-usuario' }
+                { titulo: 'Agregar usuario', url: 'agregar-usuario' },
+                { titulo: 'Informes', url: 'informes' }
             ]
         }
     ];

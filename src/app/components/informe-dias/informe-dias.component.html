@@ -1,0 +1,25 @@
+<div class="row animated fadeIn">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <div>
+                    <div>
+                        <div style="display: block">
+                            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels"
+                                [options]="barChartOptions" [plugins]="barChartPlugins" [legend]="barChartLegend"
+                                [chartType]="barChartType">
+                            </canvas>
+                        </div>
+                        <button mat-button mat-raised-button color="primary" (click)="randomize()">Update</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- De los días de la semana:
+a-Cantidad de turnos por día de la semana.
+b-Médicos por cantidad de turnos dados en un lapso de tiempo.
+c-Médicos por cantidad de días que trabajaron en un lapso de tiempo. -->

@@ -5,8 +5,11 @@ import { ProfesionalesComponent } from './profesionales/profesionales.component'
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { FechasComponent } from './fechas/fechas.component';
 import { HorasComponent } from './horas/horas.component';
-import { PrimerTurnoComponent } from './primer-turno/primer-turno.component'
+import { PrimerTurnoComponent } from './primer-turno/primer-turno.component';
+import { InformeProfesionalesComponent } from './informe-profesionales/informe-profesionales.component';
+import { InformeDiasComponent } from './informe-dias/informe-dias.component'
 
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
     declarations: [
@@ -14,18 +17,23 @@ import { PrimerTurnoComponent } from './primer-turno/primer-turno.component'
         ProfesionalesComponent,
         FechasComponent,
         HorasComponent,
-        PrimerTurnoComponent
+        PrimerTurnoComponent,
+        InformeProfesionalesComponent,
+        InformeDiasComponent
     ],
     imports: [
         CommonModule,
-        ScrollingModule
+        ScrollingModule,
+        ChartsModule
     ],
     exports: [
         EspecialidadesComponent,
         ProfesionalesComponent,
         FechasComponent,
+        HorasComponent,
         PrimerTurnoComponent,
-        HorasComponent
+        InformeProfesionalesComponent,
+        InformeDiasComponent
     ]
 })
 export class ComponentsModule { }

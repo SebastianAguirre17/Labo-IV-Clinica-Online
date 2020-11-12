@@ -1,3 +1,4 @@
+import { InformesComponent } from './informes/informes.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 
@@ -23,8 +24,9 @@ const routes: Routes = [
         children: [
             { path: '', component: DashboardComponent, data: { titulo: 'Principal'}, canActivate: [AuthGuard] }, 
             { path: 'agregar-usuario', component: AgregarUsuarioComponent, data: { titulo: 'Agregar usuario'}, canActivate: [AdminGuard] },
-            { path: 'usuarios', component: UsuariosComponent, data: { titulo: 'Profesionales', animation: 'Profesionales'}, canActivate: [AdminGuard] },
-            { path: 'usuarios-admin', component: UsuariosAdminComponent, data: { titulo: 'Administradores', animation: 'Admin'}, canActivate: [AdminGuard] },
+            { path: 'informes', component: InformesComponent, data: { titulo: 'Informes'}, canActivate: [AdminGuard] },
+            { path: 'usuarios', component: UsuariosComponent, data: { titulo: 'Profesionales', animation: 'Login'}, canActivate: [AdminGuard] },
+            { path: 'usuarios-admin', component: UsuariosAdminComponent, data: { titulo: 'Administradores', animation: 'Register'}, canActivate: [AdminGuard] },
             { path: 'sacar-turno', component: SacarTurnoComponent, data: { titulo: 'Sacar turno'}, canActivate: [PacienteGuard] },
             { path: 'turnos', component: SacarTurnoComponent, data: { titulo: 'Sacar Turno'}, canActivate: [PacienteGuard] },
             { path: 'mis-turnos', component: TurnosComponent, data: { titulo: 'Turnos'}, canActivate: [PacienteGuard] },
@@ -34,7 +36,6 @@ const routes: Routes = [
     }
 ];
 
-ata: { animation: 'Login' }
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],

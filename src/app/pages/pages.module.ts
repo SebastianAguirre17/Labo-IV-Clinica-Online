@@ -15,6 +15,7 @@ import { UsuariosAdminComponent } from './usuarios-admin/usuarios-admin.componen
 import { TurnosProfComponent } from './turnos-prof/turnos-prof.component';
 import { ComponentsModule } from '../components/components.module';
 import { HorariosComponent } from './horarios/horarios.component';
+import { InformesComponent } from './informes/informes.component';
 
 @NgModule({
     declarations: [
@@ -27,6 +28,7 @@ import { HorariosComponent } from './horarios/horarios.component';
         UsuariosAdminComponent,
         TurnosProfComponent,
         HorariosComponent,
+        InformesComponent,
     ],
     imports: [
         CommonModule,
@@ -44,6 +46,8 @@ import { HorariosComponent } from './horarios/horarios.component';
         AgregarUsuarioComponent,
         UsuariosAdminComponent,
         TurnosProfComponent,
+        HorariosComponent,
+        InformesComponent,
     ]
 })
 export class PagesModule { }
